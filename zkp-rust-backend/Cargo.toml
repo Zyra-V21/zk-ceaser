@@ -1,0 +1,63 @@
+[package]
+name = "zkp-ceaser"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+# ZK Libraries - arkworks ecosystem (versiones actualizadas 2025)
+ark-ec = "0.5.0"
+ark-ff = "0.5.0"
+ark-std = "0.5.0"
+ark-bn254 = "0.5.0"
+ark-groth16 = "0.5.0"
+ark-serialize = "0.5.0"
+ark-poly = "0.5.0"
+ark-relations = "0.5.0"
+
+# STWO PRINCIPAL - Repositorio core de StarkWare
+# https://github.com/starkware-libs/stwo
+stwo = { path = "../../external/stwo/crates/stwo", optional = true, features = ["prover"] }
+
+# Crypto and utilities
+sha3 = "0.10"
+keccak = "0.1"
+hex = "0.4"
+rand = { version = "0.8", features = ["getrandom"] }
+getrandom = { version = "0.2", features = ["js"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# WASM support
+wasm-bindgen = { version = "0.2", features = ["serde-serialize"] }
+js-sys = "0.3"
+web-sys = { version = "0.3", features = [
+  "console",
+  "Window",
+  "Document",
+  "Element",
+  "HtmlElement",
+] }
+console_error_panic_hook = "0.1"
+
+# Math utilities
+num-bigint = "0.4"
+num-traits = "0.2"
+rayon = "1.8"
+
+# Features for conditional compilation
+[features]
+default = ["mock-stwo"]  # Por defecto mock para desarrollo
+real-stwo = ["stwo"]
+mock-stwo = []
+
+# WASM optimization
+[profile.release]
+opt-level = "s"
+lto = true
+codegen-units = 1
+
+[package.metadata.wasm-pack.profile.release]
+wasm-opt = ["-Oz", "--enable-mutable-globals"]
