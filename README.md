@@ -13,18 +13,6 @@
 - 🏦 **Auto-Sustainable**: Backend covers gas costs through collected fees
 - 📱 **Production Ready**: 128-bit cryptographic security
 
-## 🏗️ **Architecture**
-
-```
-┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│   Frontend      │    │    Backend      │    │   Contracts     │
-│   (Next.js)     │────│   (Node.js)     │────│   (Cairo)       │
-│                 │    │                 │    │                 │
-│ • ZK Proof Gen  │    │ • TX1 Executor  │    │ • FeeCollectorV2│
-│ • WASM/Rust     │    │ • Event Monitor │    │ • Paymaster     │
-│ • STWO Real     │    │ • Auto-sustain  │    │ • GasCalculator │
-└─────────────────┘    └─────────────────┘    └─────────────────┘
-```
 
 ## 🚀 **Quick Start**
 
@@ -73,24 +61,6 @@ cp zkp-rust-backend/pkg/zkp_ceaser.js public/pkg/
 npm run dev
 ```
 
-### 5. Setup Backend Executor
-
-```bash
-cd ../../backend
-npm install
-cp .env.example .env
-# Configure your private keys and RPC URLs
-node mixing-executor.js
-```
-
-### 6. Deploy Contracts (Optional)
-
-```bash
-cd ../ceaser-contracts-v2
-scarb build
-# Deploy using your preferred method
-```
-
 ## 🔬 **Technical Deep Dive**
 
 ### **Zero-Knowledge Proofs**
@@ -111,13 +81,6 @@ ZK-CEASER uses **real STWO proofs** with:
 4. **Merkle Proofs**: Anonymous set membership
 5. **Metadata Encryption**: Hide receiver information
 
-### **Smart Contracts**
-
-- **FeeCollectorV2**: Core mixing logic with Paymaster integration
-- **SmartAccountDeployer**: Deploys ephemeral accounts
-- **GasCalculator**: Estimates and manages gas costs
-- **Paymaster**: Covers gas using user funds
-
 ## 📊 **System Status**
 
 | Component | Status | Technology |
@@ -130,25 +93,6 @@ ZK-CEASER uses **real STWO proofs** with:
 
 ## 🔧 **Configuration**
 
-### Environment Variables
-
-```bash
-# Backend (.env)
-PIPILONGO_PRIVATE_KEY=0x...
-PIPILONGO_ADDRESS=0x...
-FEE_COLLECTOR_ADDRESS=0x...
-STRK_TOKEN_ADDRESS=0x...
-STARKNET_RPC_URL=https://...
-```
-
-### Contract Addresses (Sepolia)
-
-```typescript
-// Frontend constants
-export const MIXING_FEE_COLLECTOR = "0x075e79fdc066b628b691913b16dd642a9813055ee61d681be2696713a811cfa0";
-export const STRK_TOKEN = "0x04718f5a0fc34cc1af16a1cdee98ffb20c31f5cd61d6ab07201858f4287c938d";
-export const SMART_ACCOUNT_DEPLOYER = "0x02cc70bc0a28ef66467e96edb1d6c3508b20cd35f50f65d16d03b6763dad4aea";
-```
 
 ## 🧪 **Testing**
 
