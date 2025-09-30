@@ -1,4 +1,4 @@
-// Modern WASM loader for Next.js 15.x following 2025 best practices
+// Fixed WASM loader for Next.js 15.x - resolves 'wbg' module error
 
 let wasmModuleCache: any = null;
 
@@ -17,42 +17,57 @@ export async function loadZKPWasm() {
       throw new Error('WebAssembly is not supported in this environment');
     }
 
-    // Method 1: Dynamic import with proper error handling
+    // Method 1: Load from public directory (fixes wbg error)
     let wasmModule;
     try {
-      console.log('📦 Attempting dynamic import...');
-      wasmModule = await import('../../pkg/zkp_ceaser');
+      console.log('📦 Loading from public directory...');
       
-      // Initialize if needed (for bundler target)
-      if (typeof wasmModule.default === 'function') {
-        console.log('🔧 Initializing WASM module...');
-        await wasmModule.default();
+      // Load the JS wrapper from public directory
+      const jsResponse = await fetch('/pkg/zkp_ceaser.js');
+      if (!jsResponse.ok) {
+        throw new Error(`Failed to fetch JS wrapper: ${jsResponse.status}`);
       }
       
-      console.log('✅ WASM module loaded via dynamic import');
-    } catch (importError) {
-      console.log('⚠️ Dynamic import failed, trying alternative method...', importError);
+      const jsCode = await jsResponse.text();
       
-      // Method 2: Manual WASM instantiation (fallback)
+      // Create a blob URL for the JS code
+      const jsBlob = new Blob([jsCode], { type: 'application/javascript' });
+      const jsUrl = URL.createObjectURL(jsBlob);
+      
+      // Import the JS wrapper
+      wasmModule = await import(/* webpackIgnore: true */ jsUrl);
+      
+      // Initialize with WASM file
+      if (typeof wasmModule.default === 'function') {
+        console.log('🔧 Initializing WASM module...');
+        await wasmModule.default('/pkg/zkp_ceaser_bg.wasm');
+      }
+      
+      // Clean up blob URL
+      URL.revokeObjectURL(jsUrl);
+      
+      console.log('✅ WASM module loaded from public directory');
+    } catch (publicError) {
+      console.log('⚠️ Public directory method failed, trying direct import...', publicError);
+      
+      // Method 2: Direct dynamic import (fallback)
       try {
-        console.log('🔧 Loading WASM manually...');
-        const wasmResponse = await fetch('/pkg/zkp_ceaser_bg.wasm');
+        console.log('📦 Attempting direct import...');
         
-        if (!wasmResponse.ok) {
-          throw new Error(`Failed to fetch WASM: ${wasmResponse.status}`);
+        // Import from pkg directory directly
+        const wasmPath = '/pkg/zkp_ceaser.js';
+        wasmModule = await import(/* webpackIgnore: true */ wasmPath);
+        
+        // Initialize if needed
+        if (typeof wasmModule.default === 'function') {
+          console.log('🔧 Initializing WASM module...');
+          await wasmModule.default('/pkg/zkp_ceaser_bg.wasm');
         }
         
-        const wasmBytes = await wasmResponse.arrayBuffer();
-        const wasmInstance = await WebAssembly.instantiate(wasmBytes);
-        
-        // Load JS wrapper
-        const jsWrapper = await import('../../pkg/zkp_ceaser_bg.js');
-        wasmModule = { ...jsWrapper, wasmInstance };
-        
-        console.log('✅ WASM loaded via manual instantiation');
-      } catch (manualError) {
+        console.log('✅ WASM module loaded via direct import');
+      } catch (directError) {
         console.error('❌ All WASM loading methods failed');
-        throw new Error(`WASM loading failed: ${manualError}`);
+        throw new Error(`WASM loading failed: ${directError}`);
       }
     }
 

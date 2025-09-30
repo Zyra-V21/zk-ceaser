@@ -179,32 +179,93 @@ impl MerkleTree {
     }
 }
 
-/// Verifica una prueba de Merkle
+/// Verifica una prueba de Merkle con índice específico
 #[wasm_bindgen]
-pub fn verify_merkle_proof(
+pub fn verify_merkle_proof_with_index(
     proof_path: Vec<String>,
     root: &str,
     leaf_hash: &str,
+    leaf_index: u32,
 ) -> Result<bool, JsValue> {
-    let mut current_hash = leaf_hash.to_string();
-    let mut leaf_index = 0u32; // Simplificado para esta implementación
+    // Si no hay prueba o raíz vacía, es inválido
+    if root.is_empty() || root == "0x0000000000000000000000000000000000000000000000000000000000000000" {
+        return Ok(false);
+    }
     
-    // Reconstruir el hash hasta la raíz
+    // Si no hay proof_path, solo verificar si leaf_hash == root (árbol de 1 elemento)
+    if proof_path.is_empty() {
+        return Ok(leaf_hash == root);
+    }
+    
+    let mut current_hash = leaf_hash.to_string();
+    let mut current_index = leaf_index;
+    
+    // Reconstruir el hash hasta la raíz usando el índice correcto
     for sibling_hash in proof_path {
-        if leaf_index & 1 == 0 {
+        if current_index & 1 == 0 {
             // Somos el hijo izquierdo
             current_hash = hash_pair(&current_hash, &sibling_hash);
         } else {
             // Somos el hijo derecho
             current_hash = hash_pair(&sibling_hash, &current_hash);
         }
-        leaf_index >>= 1;
+        current_index >>= 1;
     }
     
     Ok(current_hash == root)
 }
 
-/// Genera una prueba de Merkle mock para testing
+/// Verifica una prueba de Merkle (versión legacy sin índice)
+#[wasm_bindgen]
+pub fn verify_merkle_proof(
+    proof_path: Vec<String>,
+    root: &str,
+    leaf_hash: &str,
+) -> Result<bool, JsValue> {
+    // Usar índice 0 por defecto para compatibilidad
+    verify_merkle_proof_with_index(proof_path, root, leaf_hash, 0)
+}
+
+/// Genera un anonymous set real y prueba de Merkle
+#[wasm_bindgen] 
+pub fn generate_real_anonymous_set_proof(user_index: u32, set_size: u32, commitment_hash: &str) -> Result<JsValue, JsValue> {
+    let tree_height = (set_size as f64).log2().ceil() as u32;
+    let mut tree = MerkleTree::new(tree_height);
+    
+    // Generar anonymous set con commitments pseudoaleatorios
+    let mut rng_seed = 0x1337beef_u64; // Seed determinístico
+    for i in 0..set_size {
+        let commitment = if i == user_index {
+            commitment_hash.to_string()
+        } else {
+            // Generar commitment pseudoaleatorio usando hash determinístico
+            rng_seed = rng_seed.wrapping_mul(1103515245).wrapping_add(12345);
+            let fake_data = format!("anonymous_user_{}_seed_{:016x}", i, rng_seed);
+            hash_pair(&fake_data, &format!("salt_{:08x}", rng_seed & 0xffffffff))
+        };
+        
+        tree.insert_leaf(i, &commitment)?;
+    }
+    
+    // Generar prueba real para el usuario
+    let proof = tree.generate_proof(user_index)?;
+    let root = tree.root();
+    
+    let result = serde_json::json!({
+        "proof": {
+            "leaf_index": proof.leaf_index,
+            "leaf_hash": proof.leaf_hash,
+            "proof_path": proof.proof_path
+        },
+        "root": root,
+        "anonymous_set_size": set_size,
+        "tree_height": tree_height
+    });
+    
+    Ok(JsValue::from_str(&result.to_string()))
+}
+
+/// Genera una prueba de Merkle mock para testing (DEPRECATED)
 #[wasm_bindgen]
 pub fn generate_mock_merkle_proof(
     commitment_hash: &str,

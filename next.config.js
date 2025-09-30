@@ -1,24 +1,20 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   webpack: (config, { isServer, dev }) => {
-    // Configuración específica para WebAssembly en Next.js 15.x
+    // Configuración mínima para WebAssembly en Next.js 15.x
     config.experiments = {
       ...config.experiments,
       asyncWebAssembly: true,
       syncWebAssembly: true,
-      layers: true,
     }
 
-    // Regla específica para archivos WASM
+    // Regla para archivos WASM
     config.module.rules.push({
       test: /\.wasm$/,
       type: 'webassembly/async',
     })
 
-    // Resolver extensiones WASM
-    config.resolve.extensions.push('.wasm')
-
-    // Configuración específica para wasm-bindgen en 2025
+    // Fallbacks para resolver módulos faltantes
     config.resolve.fallback = {
       ...config.resolve.fallback,
       fs: false,
@@ -26,25 +22,27 @@ const nextConfig = {
       crypto: false,
     }
 
-    // Optimizaciones para WASM en producción
-    if (!dev) {
-      config.optimization.moduleIds = 'deterministic'
+    // Solo para el cliente, ignorar wbg
+    if (!isServer) {
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        wbg: false,
+      }
     }
 
     return config
   },
 
-  // Configuración experimental para Next.js 15.x
+  // Configuración experimental mínima
   experimental: {
-    esmExternals: 'loose',
     webpackBuildWorker: true,
   },
 
-  // Headers para WASM (Cross-Origin-Embedder-Policy)
+  // Headers básicos para WASM
   async headers() {
     return [
       {
-        source: '/(.*)',
+        source: '/pkg/:path*',
         headers: [
           {
             key: 'Cross-Origin-Embedder-Policy',

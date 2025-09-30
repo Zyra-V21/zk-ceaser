@@ -5,7 +5,7 @@ use std::collections::HashMap;
 // Importaciones condicionales de STWO
 #[cfg(feature = "real-stwo")]
 use stwo::core::{
-    fields::{m31::M31, qm31::QM31},
+    fields::m31::M31,
     vcs::blake2_hash::Blake2sHasher,
 };
 
@@ -57,29 +57,39 @@ pub fn generate_real_stwo_range_proof(
     min_amount: &str,
     max_amount: &str,
 ) -> Result<RealStwoRangeProof, JsValue> {
-    use std::time::Instant;
+    // Use WASM-compatible time measurement
+    #[cfg(target_arch = "wasm32")]
+    let start_time = web_sys::window()
+        .and_then(|w| w.performance())
+        .map(|p| p.now())
+        .unwrap_or(0.0);
     
-    let start_time = Instant::now();
+    #[cfg(not(target_arch = "wasm32"))]
+    let start_time = std::time::Instant::now();
     
     crate::console_log!("🚀 Iniciando generación STWO REAL");
     crate::console_log!("🔢 Amount: {} wei", amount_wei);
     crate::console_log!("🔑 Nonce: {}", nonce);
     
-    // Convertir amount a número para validación de rango
-    let amount: u64 = amount_wei.parse().map_err(|e| format!("Invalid amount: {}", e))?;
-    let min: u64 = min_amount.parse().map_err(|e| format!("Invalid min_amount: {}", e))?;
-    let max: u64 = max_amount.parse().map_err(|e| format!("Invalid max_amount: {}", e))?;
+    // Parse amounts with better error handling for large numbers
+    let amount = amount_wei.parse::<u128>().map_err(|e| format!("Invalid amount: {}", e))?;
+    let min = min_amount.parse::<u128>().map_err(|e| format!("Invalid min_amount: {}", e))?;
+    let max = max_amount.parse::<u128>().map_err(|e| format!("Invalid max_amount: {}", e))?;
     
-    if amount < min || amount > max {
+    // Validate range
+        if amount < min || amount > max {
         return Err(format!("Amount {} is outside valid range [{}, {}]", amount, min, max).into());
     }
+    
+    // Convert to u32 for M31 field operations (M31 uses 31-bit values)
+    let amount_m31 = (amount % (1u128 << 31)) as u32;
     
     // Generar elementos M31 reales usando STWO
     let mut m31_elements = Vec::new();
     let mut circle_points = Vec::new();
     
     // Crear elementos M31 basados en el amount y nonce
-    let base_element = M31::from(amount as u32);
+    let base_element = M31::from(amount_m31);
     let nonce_element = M31::from(nonce.len() as u32);
     
     // Generar secuencia de elementos M31 para el proof
@@ -107,15 +117,26 @@ pub fn generate_real_stwo_range_proof(
         // En producción real: hasher.update(_hash_input.as_bytes());
     }
     
+    // Calculate generation time in WASM-compatible way
+    #[cfg(target_arch = "wasm32")]
+    let generation_time = {
+        let end_time = web_sys::window()
+            .and_then(|w| w.performance())
+            .map(|p| p.now())
+            .unwrap_or(0.0);
+        (end_time - start_time) as u32
+    };
+    
+    #[cfg(not(target_arch = "wasm32"))]
     let generation_time = start_time.elapsed().as_millis() as u32;
     
     // Crear el proof data con formato de STWO real
     let proof_data = format!(
         "stwo_circle_stark_proof_v2:amount_{}_nonce_{}_elements_{}_time_{}ms",
-        amount, nonce, m31_elements.len(), generation_time
+        amount_m31, nonce, m31_elements.len(), generation_time
     );
     
-    let public_inputs = vec![
+        let public_inputs = vec![
         amount_wei.to_string(),
         min_amount.to_string(),
         max_amount.to_string(),
@@ -127,9 +148,9 @@ pub fn generate_real_stwo_range_proof(
                     circle_evaluations.iter().map(|s| s.len()).sum::<usize>();
     
     let real_proof = RealStwoRangeProof {
-        proof_data,
-        public_inputs,
-        circle_evaluations,
+            proof_data,
+            public_inputs,
+            circle_evaluations,
         stark_config: "STWO v1.0.0 Circle STARK Configuration".to_string(),
         proof_size_bytes: proof_size as u32,
         generation_time_ms: generation_time,

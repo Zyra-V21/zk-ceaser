@@ -154,9 +154,14 @@ pub fn generate_ceaser_zk_proof(
     console_log!("🔑 Generando nullifier...");
     let nullifier = generate_nullifier(&commitment.commitment_hash, user_secret)?;
     
-    // 4. Generar merkle proof para conjunto anónimo
-    console_log!("🌳 Generando merkle proof...");
-    let merkle_data_js = generate_mock_merkle_proof(&commitment.commitment_hash, config.merkle_tree_height)?;
+    // 4. Generar anonymous set real y merkle proof
+    console_log!("🌳 Generando anonymous set de {} usuarios...", 1024);
+    let anonymous_set_size = 1024; // 2^10 = 1024 usuarios en el conjunto anónimo
+    // Convertir amount a u32 para posicionamiento en anonymous set
+    let amount_parsed: u64 = amount_wei.parse().unwrap_or(1);
+    let user_index = (amount_parsed % anonymous_set_size as u64) as u32; // Posición pseudoaleatoria basada en amount
+    console_log!("👤 Usuario posicionado en índice {} del anonymous set", user_index);
+    let merkle_data_js = generate_real_anonymous_set_proof(user_index, anonymous_set_size, &commitment.commitment_hash)?;
     let merkle_data_str = merkle_data_js.as_string().ok_or("Failed to get merkle data as string")?;
     let merkle_data: serde_json::Value = serde_json::from_str(&merkle_data_str)
         .map_err(|e| format!("Failed to parse merkle data: {}", e))?;
@@ -232,10 +237,11 @@ pub fn verify_ceaser_zk_proof(proof_json: &str) -> Result<bool, JsValue> {
     #[cfg(feature = "mock-stwo")]
     let range_valid = verify_stwo_range_proof(&proof.range_proof)?;
     
-    let merkle_valid = verify_merkle_proof(
+    let merkle_valid = verify_merkle_proof_with_index(
         proof.merkle_proof.proof_path.clone(), 
         &proof.merkle_root, 
-        &proof.amount_commitment.commitment_hash
+        &proof.amount_commitment.commitment_hash,
+        proof.merkle_proof.leaf_index
     )?;
     
     let is_valid = commitment_valid && range_valid && merkle_valid;

@@ -38,6 +38,7 @@ web-sys = { version = "0.3", features = [
   "Window",
   "Document",
   "Element",
+  "Performance",
   "HtmlElement",
 ] }
 console_error_panic_hook = "0.1"
