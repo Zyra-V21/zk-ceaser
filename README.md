@@ -25,7 +25,6 @@
 - **M31 Field Arithmetic**: Mersenne-31 (2^31 - 1) field operations
 - **Anonymous Sets**: 1024-user Merkle trees for privacy
 - **Modern Web Interface**: Next.js 15 + Rust WASM integration
-- **Production Ready**: 128-bit cryptographic security
 - **Cryptography**: No mocks - actual STWO implementation
 
 ## Architecture
