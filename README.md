@@ -8,11 +8,14 @@
 </div>
 
 
+
 [![License](https://img.shields.io/badge/License-ZK--CEASER%20Non--Commercial-red?style=for-the-badge)](./LICENSE)
 [![GitHub](https://img.shields.io/badge/GitHub-Zyra--V21-blue?style=for-the-badge&logo=github)](https://github.com/Zyra-V21/zk-ceaser)
 [![STWO](https://img.shields.io/badge/STWO-Real%20Implementation-green?style=for-the-badge&logo=ethereum)](https://github.com/starkware-libs/stwo)
 [![Rust](https://img.shields.io/badge/Rust-nightly--2025--07--14-orange?style=for-the-badge&logo=rust)](https://www.rust-lang.org/)
 [![Next.js](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
+
+
 
 **ZK-CEASER**is a complete zero-knowledge proof generation system combining**real Circle STARKs**with**M31 field arithmetic**using StarkWare's official**STWO prover**. This application demonstrates advanced cryptographic privacy techniques through an intuitive web interface.
 
