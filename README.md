@@ -30,13 +30,13 @@
 ┌─────────────────────────────────────────────────────────┐
 │                    ZK-CEASER System                     │
 ├─────────────────────────────────────────────────────────┤
-│   Frontend (Next.js)     │     Backend (Rust WASM)     │
+│   Frontend (Next.js)      │     Backend (Rust WASM)     │
 │                           │                             │
 │ • React Components        │ • Real STWO Integration     │
 │ • WASM Module Loading     │ • M31 Field Arithmetic      │
-│ • Proof Verification     │ • Circle STARKs Generation  │
-│ • Modern UI/UX           │ • Merkle Tree Proofs        │
-│                           │ • Pedersen Commitments     │
+│ • Proof Verification      │ • Circle STARKs Generation  │
+│ • Modern UI/UX            │ • Merkle Tree Proofs        │
+│                           │ • Pedersen Commitments      │
 └─────────────────────────────────────────────────────────┘
 ```
 
