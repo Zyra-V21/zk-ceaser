@@ -16,17 +16,17 @@
 
 
 
-**ZK-CEASER**is a complete zero-knowledge proof generation system combining**real Circle STARKs**with**M31 field arithmetic**using StarkWare's official**STWO prover**. This application demonstrates advanced cryptographic privacy techniques through an intuitive web interface.
+**ZK-CEASER**is a complete zero-knowledge proof generation system combining**Circle STARKs**with**M31 field arithmetic**using StarkWare's official**STWO prover**. This application demonstrates advanced cryptographic privacy techniques through an intuitive web interface.
 
 ## Features
 
--**Real Zero-Knowledge Proofs**: Using STWO (StarkWare Two) official prover
+-**Zero-Knowledge Proofs**: Using STWO (StarkWare Two) official prover
 -**Circle STARKs**: Next-generation STARK technology  
 -**M31 Field Arithmetic**: Mersenne-31 (2^31 - 1) field operations
 -**Anonymous Sets**: 1024-user Merkle trees for privacy
 -**Modern Web Interface**: Next.js 15 + Rust WASM integration
 -**Production Ready**: 128-bit cryptographic security
--**Real Cryptography**: No mocks - actual STWO implementation
+-**Cryptography**: No mocks - actual STWO implementation
 
 ## Architecture
 
@@ -36,7 +36,7 @@
 ├─────────────────────────────────────────────────────────┤
 │   Frontend (Next.js)      │     Backend (Rust WASM)     │
 │                           │                             │
-│ • React Components        │ • Real STWO Integration     │
+│ • React Components        │ • STWO Integration     │
 │ • WASM Module Loading     │ • M31 Field Arithmetic      │
 │ • Proof Verification      │ • Circle STARKs Generation  │
 │ • Modern UI/UX            │ • Merkle Tree Proofs        │
@@ -66,7 +66,7 @@ cd zk-ceaser/zk-ceaser-app
 mkdir -p external
 cd external
 
-# Clone STWO core (required for real cryptography)
+# Clone STWO core (required for cryptography)
 git clone https://github.com/starkware-libs/stwo.git
 cd stwo
 git checkout main
@@ -96,7 +96,7 @@ rustc --version
 ```bash
 cd zkp-rust-backend
 
-# Build for production with real STWO
+# Build for production with STWO
 cargo build --features real-stwo --release
 
 # Generate WASM modules for web
@@ -144,7 +144,7 @@ ZK-CEASER generates comprehensive privacy proofs containing:
 4.**Merkle Proofs**: Anonymous set membership within 1024-user trees
 5.**Encrypted Metadata**: Secure receiver information encoding
 
-###**STWO Integration (Real Cryptography)
+###**STWO Integration (Cryptography)
 
 -**Field**: M31 (Mersenne-31: 2^31 - 1) - optimized for modern CPUs
 -**Extension**: QM31 (Quartic extension) - enhanced security properties  
@@ -156,7 +156,7 @@ ZK-CEASER generates comprehensive privacy proofs containing:
 
 | Component | Performance | Notes |
 |-----------|-------------|-------|
-|**Proof Generation**| 2-5 seconds | Real STWO computation |
+|**Proof Generation**| 2-5 seconds | STWO computation |
 |**Proof Size**| 8-16 KB | Optimized Circle STARKs |
 |**Verification**| 100-500ms | M31 field operations |
 |**Anonymous Set**| 1024 users | Merkle tree depth 10 |
@@ -167,8 +167,8 @@ ZK-CEASER generates comprehensive privacy proofs containing:
 |-----------|---------|------------|
 |**ZK Proofs**|  Production | STWO + M31 + Circle STARKs |
 |**Frontend**|  Production | Next.js 15 + TypeScript |
-|**WASM Backend**|  Production | Rust + Real STWO |
-|**Cryptography**|  128-bit | Real Implementation |
+|**WASM Backend**|  Production | Rust + STWO |
+|**Cryptography**|  128-bit | Implementation |
 |**Anonymous Sets**|  1024 Users | Merkle Trees |
 
 ## Development & Debugging
@@ -180,7 +180,7 @@ ZK-CEASER generates comprehensive privacy proofs containing:
 |**WASM not loading**| Check `next.config.js` and ensure WASM files are in `public/pkg/` |
 |**Rust compilation fails**| Verify `rustup override set nightly-2025-07-14` |
 |**External repos missing**| Clone STWO dependencies to `external/` directory |
-|**Proof verification fails**| Ensure real STWO feature is enabled during build |
+|**Proof verification fails**| Ensure STWO feature is enabled during build |
 
 ### Build Commands Reference
 
@@ -189,7 +189,7 @@ ZK-CEASER generates comprehensive privacy proofs containing:
 cargo build --features mock-stwo
 wasm-pack build --target web --features mock-stwo
 
-# Production build (real cryptography)  
+# Production build (cryptography)  
 cargo build --features real-stwo --release
 wasm-pack build --target web --features real-stwo
 
@@ -219,7 +219,7 @@ npm run dev
 
 Generated proofs should show:
 -  `verification_result: true` 
--  Real Merkle proofs (not empty)
+-  Merkle proofs (not empty)
 -  Valid anonymous set size (1024)
 -  Proper STWO proof structure
 
@@ -236,8 +236,8 @@ Generated proofs should show:
   "zk_proof": {
     "amount_commitment": { "x": "0x...", "y": "0x..." },
     "range_proof": { "proof_data": [...], "circle_evaluations": [...] },
-    "merkle_proof": [...], // Real proof path
-    "merkle_root": "0x...", // Real root hash
+    "merkle_proof": [...], // proof path
+    "merkle_root": "0x...", // root hash
     "nullifier": "0x...",
     "encrypted_metadata": "0x..."
   }
@@ -264,7 +264,7 @@ npm start
 
 - [ ]  Rust nightly-2025-07-14 installed
 - [ ]  STWO dependencies cloned to `external/`
-- [ ]  Real STWO features enabled  
+- [ ]  STWO features enabled  
 - [ ]  WASM files generated and copied
 - [ ]  Frontend builds without errors
 - [ ]  Proof generation works with `verification_result: true`
@@ -273,7 +273,7 @@ npm start
 
 ###**Cryptographic Guarantees
 
-- **Real STWO Implementation**: No mocks - actual Circle STARKs
+- **STWO Implementation**: No mocks - actual Circle STARKs
 - **M31 Field Arithmetic**: Production-grade mathematical operations  
 - **128-bit Security**: Industry-standard cryptographic strength
 - **Merkle Tree Proofs**: Anonymous set membership verification
@@ -283,7 +283,7 @@ npm start
 
 -**Internal Review**:  Completed
 -**Code Quality**:  Production-ready
--**Cryptographic Implementation**:  Real STWO integration verified
+-**Cryptographic Implementation**:  STWO integration verified
 -**External Audit**:  Available for security researchers
 
 ## **Contributing
@@ -340,7 +340,7 @@ This software is developed for**research and development purposes only**. It has
 
 <div align="center">
 
-**Built with Real Cryptography for True Privacy 🛡️
+**Built with Cryptography for True Privacy 🛡️
 
 [![GitHub stars](https://img.shields.io/github/stars/Zyra-V21/zk-ceaser?style=social)](https://github.com/Zyra-V21/zk-ceaser/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/Zyra-V21/zk-ceaser?style=social)](https://github.com/Zyra-V21/zk-ceaser/network/members)
