@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&duration=2000&pause=800&color=00ff41&background=00000000&center=true&vCenter=true&multiline=true&repeat=true&width=700&lines=ZK-CEASER:+Zero-Knowledge+for+the+Next+Web;Privacy-Preserving+Circle+STARKs+with+STWO+%2B+M31;Production-grade+Zero-Knowledge+Proofs+%F0%9F%94%91%F0%9F%92%AB)
+![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&duration=2000&pause=800&color=00ff41&background=00000000&center=true&vCenter=true&multiline=true&repeat=true&width[...]
 
 </div>
 
@@ -12,16 +12,16 @@
 [![Rust](https://img.shields.io/badge/Rust-nightly--2025--07--14-orange?style=for-the-badge&logo=rust)](https://www.rust-lang.org/)
 [![Next.js](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
 
-**ZK-CEASER** es un sistema completo de generación de pruebas de conocimiento cero que combina Circle STARKs con aritmética de campo M31 usando el demostrador oficial STWO de StarkWare. Esta aplicación demuestra criptografía avanzada y está lista para producción en privacidad.
+**ZK-CEASER** is a complete zero-knowledge proof generation system that combines Circle STARKs with M31 field arithmetic, using StarkWare’s official STWO prover. This application is ready for real cr[...]
 
 ## Features
 
-- **Zero-Knowledge Proofs**: Usando STWO (StarkWare Two) official prover
-- **Circle STARKs**: Tecnología STARK de última generación  
-- **M31 Field Arithmetic**: Operaciones sobre el campo de Mersenne-31 (2^31 - 1)
-- **Anonymous Sets**: Árboles de Merkle de 1024 usuarios para privacidad
-- **Modern Web Interface**: Next.js 15 + integración Rust WASM
-- **Cryptography**: Sin mocks - implementación real de STWO
+- **Zero-Knowledge Proofs**: Using STWO (StarkWare Two) official prover
+- **Circle STARKs**: State-of-the-art STARK technology  
+- **M31 Field Arithmetic**: Operations over the Mersenne-31 field (2^31 - 1)
+- **Anonymous Sets**: Merkle trees of 1024 users for privacy
+- **Modern Web Interface**: Next.js 15 + Rust WASM integration
+- **Cryptography**: No mocks – real STWO implementation
 
 ## Architecture
 
@@ -43,9 +43,9 @@
 
 ### Prerequisites
 
-- **Rust nightly-2025-07-14** (requerido para STWO)
+- **Rust nightly-2025-07-14** (required for STWO)
 - **Node.js 18+** 
-- **Git** para clonar dependencias
+- **Git** to clone dependencies
 
 ### Step 1: Clone Repository
 
@@ -57,17 +57,17 @@ cd zk-ceaser/zk-ceaser-app
 ### Step 2: Setup STWO Dependencies
 
 ```bash
-# Crear directorio externo y clonar repositorios STWO
+# Create external directory and clone STWO repositories
 mkdir -p external
 cd external
 
-# Clonar STWO core (requerido para criptografía)
+# Clone STWO core (required for cryptography)
 git clone https://github.com/starkware-libs/stwo.git
 cd stwo
 git checkout main
 cd ..
 
-# Clonar STWO Cairo (opcional, para features extendidas)
+# Clone STWO Cairo (optional, for extended features)
 git clone https://github.com/starkware-libs/stwo-cairo.git
 cd stwo-cairo  
 git checkout main
@@ -77,13 +77,13 @@ cd ../..
 ### Step 3: Setup Rust Toolchain
 
 ```bash
-# Instalar nightly específico requerido por STWO
+# Install the specific nightly required by STWO
 rustup install nightly-2025-07-14
 rustup override set nightly-2025-07-14
 
-# Verificar instalación
+# Check installation
 rustc --version
-# Debería mostrar: rustc 1.90.0-nightly
+# Should display: rustc 1.90.0-nightly
 ```
 
 ### Step 4: Build Rust WASM Backend
@@ -91,13 +91,13 @@ rustc --version
 ```bash
 cd zkp-rust-backend
 
-# Compilar para producción con STWO real
+# Build for production with real STWO
 cargo build --features real-stwo --release
 
-# Generar módulos WASM para web
+# Generate WASM modules for the web
 wasm-pack build --target web --features real-stwo
 
-# Copiar archivos WASM al frontend
+# Copy WASM files to frontend
 cp pkg/zkp_ceaser_bg.wasm ../public/pkg/
 cp pkg/zkp_ceaser.js ../public/pkg/
 
@@ -107,54 +107,54 @@ cd ..
 ### Step 5: Setup Frontend
 
 ```bash
-# Instalar dependencias de Node.js
+# Install Node.js dependencies
 npm install
 
-# Iniciar servidor de desarrollo
+# Start development server
 npm run dev
 ```
 
 ### Step 6: Access Application
 
-Abre tu navegador y navega a:
+Open your browser and go to:
 ```
 http://localhost:3000
 ```
 
-Deberías ver la interfaz de ZK-CEASER donde puedes:
-- Generar pruebas de conocimiento cero
-- Verificar la integridad de las pruebas  
-- Descargar archivos de prueba
-- Explorar componentes criptográficos
+You should see the ZK-CEASER interface where you can:
+- Generate zero-knowledge proofs
+- Verify proof integrity  
+- Download proof files
+- Explore cryptographic components
 
 ## Technical Deep Dive
 
 ### Zero-Knowledge Proof Components
 
-ZK-CEASER genera pruebas de privacidad que contienen:
+ZK-CEASER generates privacy proofs that contain:
 
-1. **Pedersen Commitments**: Ocultan montos usando curvas elípticas
-2. **Range Proofs**: Prueban validez de montos (0.001-1000+) sin revelar valores
-3. **Nullifiers**: Identificadores únicos para prevenir doble gasto
-4. **Merkle Proofs**: Prueba de pertenencia en set anónimo de 1024 usuarios
-5. **Encrypted Metadata**: Codificación segura de información del receptor
+1. **Pedersen Commitments**: Hide amounts using elliptic curves
+2. **Range Proofs**: Prove validity of amounts (0.001–1000+) without revealing values
+3. **Nullifiers**: Unique identifiers to prevent double spending
+4. **Merkle Proofs**: Proof of membership in an anonymous set of 1024 users
+5. **Encrypted Metadata**: Secure encoding of recipient information
 
 ### STWO Integration (Cryptography)
 
-- **Field**: M31 (Mersenne-31: 2^31 - 1) - optimizado para CPUs modernas
-- **Extension**: QM31 (extensión cuártica) - mayor seguridad  
-- **STARKs**: Circle STARKs con FRI - nuevo sistema de pruebas
-- **Hash**: Blake2s (256-bit) - hashing criptográfico de alto rendimiento
-- **Security**: 128-bit de seguridad criptográfica
+- **Field**: M31 (Mersenne-31: 2^31 - 1) – optimized for modern CPUs
+- **Extension**: QM31 (quartic extension) – higher security  
+- **STARKs**: Circle STARKs with FRI – new proof system
+- **Hash**: Blake2s (256-bit) – high-performance cryptographic hashing
+- **Security**: 128-bit cryptographic security
 
 ### Performance Metrics
 
 | Component           | Performance   | Notes                      |
 |---------------------|--------------|----------------------------|
-| **Proof Generation**| 2-5 seconds  | Computación STWO           |
-| **Proof Size**      | 8-16 KB      | Circle STARKs optimizados  |
-| **Verification**    | 100-500ms    | Operaciones de campo M31   |
-| **Anonymous Set**   | 1024 users   | Árbol Merkle profundidad 10|
+| **Proof Generation**| 2-5 seconds  | STWO computation           |
+| **Proof Size**      | 8-16 KB      | Optimized Circle STARKs    |
+| **Verification**    | 100-500ms    | M31 field operations       |
+| **Anonymous Set**   | 1024 users   | Merkle Tree depth 10       |
 | **Memory Usage**    | ~50MB        | WASM + STWO runtime        |
 
 ## System Status
@@ -173,26 +173,26 @@ ZK-CEASER genera pruebas de privacidad que contienen:
 
 | Issue                  | Solution                                                      |
 |------------------------|--------------------------------------------------------------|
-| **WASM not loading**   | Verifica `next.config.js` y que los WASM estén en `public/pkg/` |
-| **Rust compilation fails** | Verifica `rustup override set nightly-2025-07-14`         |
-| **External repos missing** | Clona dependencias STWO en `external/`                   |
-| **Proof verification fails** | Asegúrate de compilar con feature STWO                 |
+| **WASM not loading**   | Check `next.config.js` and that WASM files are in `public/pkg/` |
+| **Rust compilation fails** | Check `rustup override set nightly-2025-07-14`         |
+| **External repos missing** | Clone STWO dependencies in `external/`                   |
+| **Proof verification fails** | Ensure you build with the STWO feature                 |
 
 ### Build Commands Reference
 
 ```bash
-# Build de desarrollo (más rápido)
+# Development build (faster)
 cargo build --features mock-stwo
 wasm-pack build --target web --features mock-stwo
 
-# Build de producción (criptografía real)  
+# Production build (real cryptography)  
 cargo build --features real-stwo --release
 wasm-pack build --target web --features real-stwo
 
-# Chequeo de compilación
+# Compilation check
 cargo check --features real-stwo
 
-# Ejecutar tests
+# Run tests
 cargo test --features real-stwo
 ```
 
@@ -201,23 +201,23 @@ cargo test --features real-stwo
 ### Proof Generation Testing
 
 ```bash
-# Test de generación de pruebas ZK
+# Zero-knowledge proof generation test
 cd zkp-rust-backend
 cargo test --features real-stwo
 
-# Test de integración WASM
+# WASM integration test
 cd ../
 npm run dev
-# Navega a http://localhost:3000 y genera una prueba
+# Go to http://localhost:3000 and generate a proof
 ```
 
 ### Verification Testing
 
-Las pruebas generadas deben mostrar:
+Generated proofs should show:
 - `verification_result: true` 
-- Pruebas Merkle (no vacías)
-- Tamaño de set anónimo válido (1024)
-- Estructura de prueba STWO válida
+- Merkle proofs (not empty)
+- Valid anonymous set size (1024)
+- Valid STWO proof structure
 
 ### Example Generated Proof Structure
 
@@ -245,12 +245,12 @@ Las pruebas generadas deben mostrar:
 ### Build for Production
 
 ```bash
-# 1. Build WASM optimizado
+# 1. Optimized WASM build
 cd zkp-rust-backend
 cargo build --features real-stwo --release
 wasm-pack build --target web --features real-stwo --release
 
-# 2. Build frontend optimizado
+# 2. Optimized frontend build
 cd ../
 npm run build
 npm start
@@ -258,74 +258,74 @@ npm start
 
 ### Deployment Checklist
 
-- [ ] Rust nightly-2025-07-14 instalado
-- [ ] Dependencias STWO clonadas en `external/`
-- [ ] Features STWO habilitadas  
-- [ ] WASM generado y copiado
-- [ ] Frontend compila sin errores
-- [ ] Generación de pruebas funciona con `verification_result: true`
+- [ ] Rust nightly-2025-07-14 installed
+- [ ] STWO dependencies cloned in `external/`
+- [ ] STWO features enabled  
+- [ ] WASM generated and copied
+- [ ] Frontend builds without errors
+- [ ] Proof generation works with `verification_result: true`
 
 ## **Security & Cryptography**
 
 ### Cryptographic Guarantees
 
-- **STWO Implementation**: Sin mocks - Circle STARKs reales
-- **M31 Field Arithmetic**: Operaciones matemáticas de producción  
-- **128-bit Security**: Estándar de seguridad industrial
-- **Merkle Tree Proofs**: Verificación de pertenencia a sets anónimos
-- **Nullifier System**: Previene ataques de doble gasto
+- **STWO Implementation**: No mocks – real Circle STARKs
+- **M31 Field Arithmetic**: Production-grade mathematical operations  
+- **128-bit Security**: Industry security standard
+- **Merkle Tree Proofs**: Membership verification in anonymous sets
+- **Nullifier System**: Prevents double-spending attacks
 
 ### Security Audit Status
 
-- **Internal Review**: Completado
-- **Code Quality**: Listo para producción
-- **Cryptographic Implementation**: Integración STWO verificada
-- **External Audit**: Disponible para investigadores de seguridad
+- **Internal Review**: Completed
+- **Code Quality**: Ready for production
+- **Cryptographic Implementation**: STWO integration verified
+- **External Audit**: Available for security researchers
 
 ## **Contributing**
 
-¡Agradecemos tus contribuciones para mejorar ZK-CEASER!
+We welcome your contributions to improve ZK-CEASER!
 
 ### Development Setup
 
-1. Haz fork del repositorio
-2. Clona tu fork: `git clone https://github.com/YOUR_USERNAME/zk-ceaser.git`
-3. Sigue la guía de reproducción arriba
-4. Crea una rama de feature: `git checkout -b feature/amazing-feature`
-5. Haz tus cambios y testea a fondo
+1. Fork the repository
+2. Clone your fork: `git clone https://github.com/YOUR_USERNAME/zk-ceaser.git`
+3. Follow the reproduction guide above
+4. Create a feature branch: `git checkout -b feature/amazing-feature`
+5. Make your changes and test thoroughly
 6. Commit: `git commit -m 'Add amazing feature'`
 7. Push: `git push origin feature/amazing-feature`
-8. Abre un Pull Request
+8. Open a Pull Request
 
 ### Areas for Contribution
 
-- **Cryptography**: Mejorar integración STWO
-- **Frontend**: Mejorar UI/UX  
-- **Performance**: Optimizar generación de pruebas
-- **Documentation**: Expandir guías técnicas
-- **Testing**: Añadir cobertura de tests
+- **Cryptography**: Improve STWO integration
+- **Frontend**: Improve UI/UX  
+- **Performance**: Optimize proof generation
+- **Documentation**: Expand technical guides
+- **Testing**: Add test coverage
 
 ## **License & Important Disclaimer**
 
-Este proyecto está licenciado bajo la **ZK-CEASER NON-COMMERCIAL LICENSE** – ver el archivo [LICENSE](LICENSE) para más detalles.
+This project is licensed under the **ZK-CEASER NON-COMMERCIAL LICENSE** – see the [LICENSE](LICENSE) file for details.
 
 ### Important Disclaimer
 
-Este software se desarrolla solo para **investigación y desarrollo**. **No ha sido auditado para uso en producción**. El uso comercial está restringido para asegurar un despliegue responsable de la criptografía avanzada.
+This software is developed for **research and development only**. **It has not been audited for production use**. Commercial use is restricted to ensure responsible deployment of cryptographic technolo[...]
 
 ### License Summary
 
-- **Uso no comercial**: Personal, educativo, investigación y contribuciones open-source
-- **Uso comercial**: Reservado exclusivamente a Ceaser (@ZyraV21)
-- **Contribuciones**: Bienvenidas bajo los mismos términos de licencia
-- **Licencia comercial**: Contactar a [@ZyraV21](https://twitter.com/ZyraV21) para consultas
+- **Non-commercial use**: Personal, educational, research, and open-source contributions
+- **Commercial use**: Reserved exclusively for Ceaser (@ZyraV21)
+- **Contributions**: Welcome under the same license terms
+- **Commercial license**: Contact [@ZyraV21](https://twitter.com/ZyraV21) for inquiries
 
 ## **Acknowledgments**
 
-- **[StarkWare](https://starkware.co/)** por el demostrador STWO y tecnología Circle STARKs  
-- **[Arkworks](https://arkworks.rs/)** por primitivas criptográficas fundamentales  
-- **[Rust Community](https://www.rust-lang.org/)** por el potente lenguaje de sistemas  
-- **[Next.js Team](https://nextjs.org/)** por el excelente framework React  
+- **[StarkWare](https://starkware.co/)** for the STWO prover and Circle STARKs technology  
+- **[Arkworks](https://arkworks.rs/)** for fundamental cryptographic primitives  
+- **[Rust Community](https://www.rust-lang.org/)** for the powerful systems language  
+- **[Next.js Team](https://nextjs.org/)** for the excellent React framework  
 
 ## **Support & Community**
 
