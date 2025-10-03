@@ -1,6 +1,10 @@
 # 🛡️ ZK-CEASER: Privacy-Preserving Zero-Knowledge Proof System
 
-![ZK-CEASER Banner](https://img.shields.io/badge/ZK--CEASER-Privacy%20Preserving-blue?style=for-the-badge&logo=ethereum)
+[![License](https://img.shields.io/badge/License-ZK--CEASER%20Non--Commercial-red?style=for-the-badge)](./LICENSE)
+[![GitHub](https://img.shields.io/badge/GitHub-Zyra--V21-blue?style=for-the-badge&logo=github)](https://github.com/Zyra-V21/zk-ceaser)
+[![STWO](https://img.shields.io/badge/STWO-Real%20Implementation-green?style=for-the-badge&logo=ethereum)](https://github.com/starkware-libs/stwo)
+[![Rust](https://img.shields.io/badge/Rust-nightly--2025--07--14-orange?style=for-the-badge&logo=rust)](https://www.rust-lang.org/)
+[![Next.js](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
 
 **ZK-CEASER** is a complete zero-knowledge proof generation system combining **real Circle STARKs** with **M31 field arithmetic** using StarkWare's official **STWO prover**. This application demonstrates advanced cryptographic privacy techniques through an intuitive web interface.
 
@@ -41,7 +45,7 @@
 ### **🔧 Step 1: Clone Repository**
 
 ```bash
-git clone https://github.com/Zyra-V23/zk-ceaser.git
+git clone https://github.com/Zyra-V21/zk-ceaser.git
 cd zk-ceaser/zk-ceaser-app
 ```
 
@@ -105,8 +109,6 @@ npm install
 npm run dev
 ```
 
-<<<<<<< HEAD
-=======
 ### **✅ Step 6: Access Application**
 
 Open your browser and navigate to:
@@ -120,7 +122,6 @@ You should see the ZK-CEASER interface where you can:
 - Download proof files
 - Explore cryptographic components
 
->>>>>>> d472a43 (🎉 Complete ZK-CEASER system with real STWO integration)
 ## 🔬 **Technical Deep Dive**
 
 ### **Zero-Knowledge Proof Components**
@@ -135,49 +136,43 @@ ZK-CEASER generates comprehensive privacy proofs containing:
 
 ### **STWO Integration (Real Cryptography)**
 
-- **Field**: M31 (Mersenne-31: 2^31 - 1) - optimized for modern CPUs
-- **Extension**: QM31 (Quartic extension) - enhanced security properties  
-- **STARKs**: Circle STARKs with FRI - next-generation proof system
-- **Hash**: Blake2s (256-bit) - high-performance cryptographic hashing
-- **Security**: 128-bit cryptographic security - production-grade protection
+- **🔢 Field**: M31 (Mersenne-31: 2^31 - 1) - optimized for modern CPUs
+- **🔗 Extension**: QM31 (Quartic extension) - enhanced security properties  
+- **⚡ STARKs**: Circle STARKs with FRI - next-generation proof system
+- **🔐 Hash**: Blake2s (256-bit) - high-performance cryptographic hashing
+- **🛡️ Security**: 128-bit cryptographic security - production-grade protection
 
-<<<<<<< HEAD
-=======
-### **Performance Metrics**
+### **📊 Performance Metrics**
 
 | Component | Performance | Notes |
 |-----------|-------------|-------|
-| **Proof Generation** | 2-5 seconds | Real STWO computation |
-| **Proof Size** | 8-16 KB | Optimized Circle STARKs |
-| **Verification** | 100-500ms | M31 field operations |
-| **Anonymous Set** | 1024 users | Merkle tree depth 10 |
-| **Memory Usage** | ~50MB | WASM + STWO runtime |
-
->>>>>>> d472a43 (🎉 Complete ZK-CEASER system with real STWO integration)
+| **⚡ Proof Generation** | 2-5 seconds | Real STWO computation |
+| **📦 Proof Size** | 8-16 KB | Optimized Circle STARKs |
+| **✅ Verification** | 100-500ms | M31 field operations |
+| **👥 Anonymous Set** | 1024 users | Merkle tree depth 10 |
+| **💾 Memory Usage** | ~50MB | WASM + STWO runtime |
 ## 📊 **System Status**
 
 | Component | Status | Technology |
 |-----------|---------|------------|
-| **ZK Proofs** | ✅ Production | STWO + M31 + Circle STARKs |
-| **Frontend** | ✅ Production | Next.js 15 + TypeScript |
-| **WASM Backend** | ✅ Production | Rust + Real STWO |
-| **Cryptography** | ✅ 128-bit | Real Implementation |
-| **Anonymous Sets** | ✅ 1024 Users | Merkle Trees |
+| **🔬 ZK Proofs** | ✅ Production | STWO + M31 + Circle STARKs |
+| **🌐 Frontend** | ✅ Production | Next.js 15 + TypeScript |
+| **🦀 WASM Backend** | ✅ Production | Rust + Real STWO |
+| **🔐 Cryptography** | ✅ 128-bit | Real Implementation |
+| **👥 Anonymous Sets** | ✅ 1024 Users | Merkle Trees |
 
 ## 🛠️ **Development & Debugging**
 
-<<<<<<< HEAD
-=======
-### **Common Issues & Solutions**
+### **⚠️ Common Issues & Solutions**
 
 | Issue | Solution |
 |-------|----------|
-| **WASM not loading** | Check `next.config.js` and ensure WASM files are in `public/pkg/` |
-| **Rust compilation fails** | Verify `rustup override set nightly-2025-07-14` |
-| **External repos missing** | Clone STWO dependencies to `external/` directory |
-| **Proof verification fails** | Ensure real STWO feature is enabled during build |
+| **🚫 WASM not loading** | Check `next.config.js` and ensure WASM files are in `public/pkg/` |
+| **❌ Rust compilation fails** | Verify `rustup override set nightly-2025-07-14` |
+| **📁 External repos missing** | Clone STWO dependencies to `external/` directory |
+| **🔍 Proof verification fails** | Ensure real STWO feature is enabled during build |
 
-### **Build Commands Reference**
+### **🔧 Build Commands Reference**
 
 ```bash
 # Development build (faster)
@@ -190,7 +185,6 @@ wasm-pack build --target web --features real-stwo
 
 # Check compilation
 cargo check --features real-stwo
->>>>>>> d472a43 (🎉 Complete ZK-CEASER system with real STWO integration)
 
 # Run tests
 cargo test --features real-stwo
@@ -307,7 +301,13 @@ We welcome contributions to improve ZK-CEASER!
 
 ## 📜 **License**
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the **ZK-CEASER NON-COMMERCIAL LICENSE** - see the [LICENSE](LICENSE) file for details.
+
+### **📋 License Summary**
+- ✅ **Non-commercial use**: Personal, educational, research, and open-source contributions
+- ❌ **Commercial use**: Reserved exclusively to Ceaser (@ZyraV21)
+- 🤝 **Contributions**: Welcome under the same license terms
+- 📞 **Commercial licensing**: Contact [@ZyraV21](https://twitter.com/ZyraV21) for inquiries
 
 ## 🙏 **Acknowledgments**
 
@@ -318,10 +318,11 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 **Support & Community**
 
-- **🐛 Issues**: [GitHub Issues](https://github.com/Zyra-V23/zk-ceaser/issues)
-- **💬 Discussions**: [GitHub Discussions](https://github.com/Zyra-V23/zk-ceaser/discussions)  
+- **🐛 Issues**: [GitHub Issues](https://github.com/Zyra-V21/zk-ceaser/issues)
+- **💬 Discussions**: [GitHub Discussions](https://github.com/Zyra-V21/zk-ceaser/discussions)  
 - **📖 Documentation**: [Technical Docs](TECHNICAL.md)
 - **🚀 Deployment**: [Deployment Guide](DEPLOYMENT.md)
+- **🐦 Twitter**: [@ZyraV21](https://twitter.com/ZyraV21)
 
 ---
 
@@ -329,8 +330,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **🛡️ Built with Real Cryptography for True Privacy 🛡️**
 
-[![GitHub stars](https://img.shields.io/github/stars/Zyra-V23/zk-ceaser?style=social)](https://github.com/Zyra-V23/zk-ceaser/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/Zyra-V23/zk-ceaser?style=social)](https://github.com/Zyra-V23/zk-ceaser/network/members)
+[![GitHub stars](https://img.shields.io/github/stars/Zyra-V21/zk-ceaser?style=social)](https://github.com/Zyra-V21/zk-ceaser/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/Zyra-V21/zk-ceaser?style=social)](https://github.com/Zyra-V21/zk-ceaser/network/members)
+[![License](https://img.shields.io/badge/License-ZK--CEASER%20Non--Commercial-red?style=flat-square)](./LICENSE)
 
 **Made with ❤️ using STWO + Circle STARKs + M31 Field Arithmetic**
 
