@@ -2,12 +2,7 @@
 
 <div align="center">
 
-<<<<<<< HEAD
-![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&duration=2000&pause=800&color=00ff41&background=00000000&center=true&vCenter=true&multiline=true&repeat=true&width=800&height=120&lines=Zero-Knowledge+Proofs+with+Circle+STARKs;M31+Field+Arithmetic+%2B+Real+STWO+Prover;Anonymous+Sets+%2B+Merkle+Tree+Privacy;Cryptographic+Privacy+for+Starknet+Ecosystem;)
-
-=======
-![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&duration=2000&pause=800&color=00ff41&background=00000000&center=true&vCenter=true&multiline=true&repeat=true&width=900&height=120&lines=Zero-Knowledge+Proofs+with+Circle+STARKs;M31+Field+Arithmetic+%2B+Real+STWO+Prover;Anonymous+Sets+%2B+Merkle+Tree+Privacy;Cryptographic+Privacy+for+Starknet+Ecosystem)
->>>>>>> f9ba602 (fix typing animation width)
+![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&duration=2000&pause=800&color=00ff41&background=00000000&center=true&vCenter=true&multiline=true&repeat=true&width=900&height=120&lines=Zero-Knowledge+Proofs+with+Circle+STARKs;M31+Field+Arithmetic+%2B+Real+STWO+Prover;Anonymous+Sets+%2B+Merkle+Tree+Privacy)
 
 </div>
 
