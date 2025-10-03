@@ -2,77 +2,7 @@
 
 <div align="center">
 
-<!-- Matrix Effect Header with Algorithm-Driven Movement -->
-<svg width="100%" height="200" viewBox="0 0 800 200" style="background: linear-gradient(45deg, #000000, #001100);">
-  <defs>
-    <style>
-      .matrix-text { 
-        font-family: 'Courier New', monospace; 
-        font-size: 12px; 
-        fill: #00ff41; 
-        opacity: 0.8;
-      }
-      .matrix-fade { opacity: 0.3; }
-      .matrix-bright { fill: #ffffff; font-weight: bold; }
-    </style>
-  </defs>
-  
-  <!-- Numbers falling with Fibonacci timing (1,1,2,3,5,8s) -->
-  <text x="80" y="20" class="matrix-text">2147483647
-    <animate attributeName="y" values="20;220" dur="1s" repeatCount="indefinite"/>
-  </text>
-  <text x="160" y="0" class="matrix-text">6a09e667
-    <animate attributeName="y" values="0;200" dur="1s" begin="1s" repeatCount="indefinite"/>
-  </text>
-  <text x="240" y="50" class="matrix-text matrix-fade">1123581321
-    <animate attributeName="y" values="50;250" dur="2s" begin="2s" repeatCount="indefinite"/>
-  </text>
-  <text x="320" y="10" class="matrix-text">1009
-    <animate attributeName="y" values="10;210" dur="3s" begin="4s" repeatCount="indefinite"/>
-  </text>
-  <text x="400" y="80" class="matrix-text matrix-bright">blake2s
-    <animate attributeName="y" values="80;280" dur="5s" begin="7s" repeatCount="indefinite"/>
-  </text>
-  <text x="480" y="30" class="matrix-text">stark
-    <animate attributeName="y" values="30;230" dur="8s" begin="12s" repeatCount="indefinite"/>
-  </text>
-  
-  <!-- Bubble Sort positions: elements swap positions over time -->
-  <text x="560" y="60" class="matrix-text matrix-fade">m31
-    <animateTransform attributeName="transform" type="translate" 
-      values="0,0; 80,0; 160,0; 80,0; 0,0" dur="10s" repeatCount="indefinite"/>
-  </text>
-  <text x="640" y="60" class="matrix-text matrix-fade">qm31
-    <animateTransform attributeName="transform" type="translate" 
-      values="0,0; -80,0; -160,0; -80,0; 0,0" dur="10s" repeatCount="indefinite"/>
-  </text>
-  
-  <!-- Prime number spacing algorithm: positions at 2,3,5,7,11... * 40px -->
-  <text x="80" y="120" class="matrix-text matrix-fade">stwo</text>   <!-- 2*40 -->
-  <text x="120" y="140" class="matrix-text matrix-fade">field</text>  <!-- 3*40 -->
-  <text x="200" y="160" class="matrix-text matrix-fade">proof</text>  <!-- 5*40 -->
-  <text x="280" y="120" class="matrix-text matrix-fade">stark</text>  <!-- 7*40 -->
-  <text x="440" y="140" class="matrix-text matrix-fade">zk</text>     <!-- 11*40 -->
-  
-  <!-- Binary search oscillation: title moves in binary search pattern -->
-  <text x="400" y="100" text-anchor="middle" style="font-family: 'Courier New', monospace; font-size: 28px; fill: #00ff41; font-weight: bold;">
-    ZK-CEASER
-    <animateTransform attributeName="transform" type="translate"
-      values="0,0; -100,0; 50,0; -25,0; 12,0; -6,0; 0,0" dur="14s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite"/>
-  </text>
-  <text x="400" y="130" text-anchor="middle" style="font-family: 'Courier New', monospace; font-size: 14px; fill: #ffffff;">
-    Privacy by Default • Circle STARKs • M31 Field
-  </text>
-</svg>
-
-<!-- Repository Statistics -->
-<img src="https://github-readme-stats.vercel.app/api?username=Zyra-V21&repo=zk-ceaser&show_icons=true&theme=dark&hide_border=true&bg_color=000000&title_color=00ff41&icon_color=00ff41&text_color=ffffff&border_color=00ff41" width="48%"/>
-
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Zyra-V21&repo=zk-ceaser&layout=compact&theme=dark&hide_border=true&bg_color=000000&title_color=00ff41&text_color=ffffff" width="48%"/>
-
-<!-- Contribution Graph -->
-<img src="https://github-readme-stats.vercel.app/api/pin/?username=Zyra-V21&repo=zk-ceaser&theme=dark&hide_border=true&bg_color=000000&title_color=00ff41&text_color=ffffff&icon_color=00ff41" width="100%"/>
+![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&duration=2000&pause=800&color=00ff41&background=00000000&center=true&vCenter=true&multiline=true&repeat=true&width=800&height=120&lines=Zero-Knowledge+Proofs+with+Circle+STARKs;M31+Field+Arithmetic+%2B+Real+STWO+Prover;Anonymous+Sets+%2B+Merkle+Tree+Privacy;Cryptographic+Privacy+for+Starknet+Ecosystem)
 
 </div>
 
