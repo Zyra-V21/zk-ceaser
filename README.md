@@ -310,10 +310,10 @@ We welcome contributions to improve ZK-CEASER!
 
 ## License & Important Disclaimer
 
-This project is licensed under the**ZK-CEASER NON-COMMERCIAL LICENSE** - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the **ZK-CEASER NON-COMMERCIAL LICENSE** - see the [LICENSE](LICENSE) file for details.
 
 ### Important Disclaimer
-This software is developed for**research and development purposes only**. It has**not been audited for production use**. Commercial usage is restricted to ensure responsible deployment of cryptographic systems.
+This software is developed for **research and development purposes only**. It has **not been audited for production use**. Commercial usage is restricted to ensure responsible deployment of cryptographic systems.
 
 ### License Summary
 - **Non-commercial use**: Personal, educational, research, and open-source contributions
