@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { ZKProofGenerator } from '@/components/ZKProofGenerator'
+import { ZKPrivacyForm } from '@/components/ZKPrivacyForm'
 
 export default function Home() {
   return (
@@ -10,13 +10,13 @@ export default function Home() {
       <div className="container mx-auto px-4 py-8">
         <div className="text-center mb-12">
           <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-            ZK-CEASER
+            ZK-CEASER Matrix V3
           </h1>
           <p className="text-xl text-gray-300 mb-2">
-            Privacy-Preserving STRK Transfers with Zero-Knowledge Proofs
+            True Privacy-Preserving STRK Protocol with ZK-STARKs
           </p>
           <p className="text-sm text-gray-400">
-            Generate ZK proofs off-chain using STWO + Circle STARKs + M31 Field Arithmetic
+            Amount & Receiver Hidden • STWO Proofs • Autonomous Execution
           </p>
         </div>
 
@@ -24,31 +24,31 @@ export default function Home() {
         <div className="grid md:grid-cols-3 gap-6 mb-12">
           <div className="bg-white/5 backdrop-blur-lg rounded-xl p-6 border border-white/10">
             <div className="text-2xl mb-3">🔐</div>
-            <h3 className="text-lg font-semibold mb-2">Amount Privacy</h3>
+            <h3 className="text-lg font-semibold mb-2">Total Privacy</h3>
             <p className="text-gray-400 text-sm">
-              Hide transaction amounts using Pedersen commitments and range proofs
+              Amount and receiver are completely hidden via ZK-STARKs
             </p>
           </div>
           
           <div className="bg-white/5 backdrop-blur-lg rounded-xl p-6 border border-white/10">
             <div className="text-2xl mb-3">⚡</div>
-            <h3 className="text-lg font-semibold mb-2">STWO Integration</h3>
+            <h3 className="text-lg font-semibold mb-2">Circle STARKs</h3>
             <p className="text-gray-400 text-sm">
-              Leverage StarkWare's next-gen prover with Circle STARKs
+              STWO prover with M31 field arithmetic for efficient proofs
             </p>
           </div>
           
           <div className="bg-white/5 backdrop-blur-lg rounded-xl p-6 border border-white/10">
-            <div className="text-2xl mb-3">🌳</div>
-            <h3 className="text-lg font-semibold mb-2">Anonymous Sets</h3>
+            <div className="text-2xl mb-3">🤖</div>
+            <h3 className="text-lg font-semibold mb-2">Auto Execution</h3>
             <p className="text-gray-400 text-sm">
-              Use Merkle trees to create large anonymity sets for privacy
+              Backend automatically executes TX1 using Pipilongo paymaster
             </p>
           </div>
         </div>
 
-        {/* ZK Proof Generator */}
-        <ZKProofGenerator />
+        {/* ZK Privacy Form */}
+        <ZKPrivacyForm />
 
         {/* Technical Details */}
         <div className="mt-16 bg-white/5 backdrop-blur-lg rounded-xl p-8 border border-white/10">

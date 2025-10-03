@@ -1,0 +1,9 @@
+[package]
+name = "size-of"
+version = "0.1.5"
+edition = "2021"
+description = "WASM-compatible version of size-of crate"
+license = "MIT OR Apache-2.0"
+
+[dependencies]
+# No dependencies needed for WASM-compatible version

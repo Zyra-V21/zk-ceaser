@@ -29,6 +29,11 @@ rand = { version = "0.8", features = ["getrandom"] }
 getrandom = { version = "0.2", features = ["js"] }
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
+# Use starknet-crypto for Poseidon (official Starknet implementation - 100% compatible with Cairo)
+# CONFIGURACIÓN ESPECÍFICA PARA WASM: sin std, solo alloc
+starknet-crypto = { version = "0.8", default-features = false, features = ["alloc"] }
+# USAR LA MISMA VERSIÓN que starknet-crypto para evitar conflictos
+starknet-types-core = { version = "0.2", default-features = false, features = ["alloc"] }
 
 # WASM support
 wasm-bindgen = { version = "0.2", features = ["serde-serialize"] }
@@ -62,3 +67,9 @@ codegen-units = 1
 
 [package.metadata.wasm-pack.profile.release]
 wasm-opt = ["-Oz", "--enable-mutable-globals"]
+
+# Patch para resolver incompatibilidad de size-of con WASM
+# SOLUCIÓN CRIPTOGRÁFICA: Reemplazar size-of con implementación WASM-compatible
+[patch.crates-io]
+size-of = { version = "0.1.5", path = "./patches/size-of-wasm" }
+size-of = { version = "0.1.5", path = "./patches/size-of-wasm" }

@@ -255,9 +255,13 @@ pub fn verify_ceaser_zk_proof(proof_json: &str) -> Result<bool, JsValue> {
 /// Función para obtener estadísticas de rendimiento
 #[wasm_bindgen]
 pub fn get_zkp_performance_stats() -> JsValue {
-    if cfg!(feature = "real-stwo") {
-        get_real_stwo_info()
-    } else {
+    #[cfg(feature = "real-stwo")]
+    {
+        crate::production::stwo_real::get_real_stwo_info()
+    }
+    
+    #[cfg(not(feature = "real-stwo"))]
+    {
         let stats = HashMap::from([
             ("proof_generation_time_ms", "~100 (MOCK - NOT REAL)"),
             ("proof_size_bytes", "~1024 (MOCK - NOT REAL)"),
