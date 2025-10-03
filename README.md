@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&duration=2000&pause=800&color=00ff41&background=00000000&center=true&vCenter=true&multiline=true&repeat=true&width[...]
+![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&duration=2000&pause=800&color=00ff41&background=00000000&center=true&vCenter=true&multiline=true&repeat=true&width=900&height=120&lines=Zero-Knowledge+Proofs+with+Circle+STARKs;M31+Field+Arithmetic+%2B+STWO+Prover;Anonymous+Sets+%2B+Merkle+Tree+Privacy)
 
 </div>
 
@@ -315,7 +315,7 @@ This software is developed for **research and development only**. **It has not b
 
 We believe privacy-preserving technology should be accessible to all, and that responsible development is the foundation of meaningful adoption. While the cryptographic industry races toward deployment, we choose to prioritize education, transparency, and proper security validation first.
 
-ZK-CEASER represents our commitment to advancing privacy as a fundamental right, not merely as a product. By sharing this research openly, we aim to foster a community of developers who understand both the potential and responsibility that comes with cryptographic implementations.
+ZK-CEASER represents our commitment to advancing privacy as a fundamental right, not merely as a product. By sharing this research openly, we aim to foster a community of developers who understand both the potential and responsibility that comes with cryptographic implementations/privacy enhacements.
 
 Unlike the common "deploy first, apologize later" approach seen in many Web3 projects, we advocate for a foundation of robust cryptographic principles, thorough testing, and community review before any production deployment. This approach may take longer, but creates the trust necessary for meaningful adoption of privacy technology.
 
