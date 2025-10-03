@@ -272,11 +272,11 @@ npm start
 
 ### Cryptographic Guarantees
 
-- **STWO Implementation**: No mocks - actual Circle STARKs
-- **M31 Field Arithmetic**: Production-grade mathematical operations  
-- **128-bit Security**: Industry-standard cryptographic strength
-- **Merkle Tree Proofs**: Anonymous set membership verification
-- **Nullifier System**: Prevents double-spending attacks
+-**STWO Implementation**: No mocks - actual Circle STARKs
+-**M31 Field Arithmetic**: Production-grade mathematical operations  
+-**128-bit Security**: Industry-standard cryptographic strength
+-**Merkle Tree Proofs**: Anonymous set membership verification
+-**Nullifier System**: Prevents double-spending attacks
 
 ### Security Audit Status
 
