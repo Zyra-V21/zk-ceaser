@@ -2,9 +2,17 @@
 
 <div align="center">
 
-![Ceaser Neon Banner](https://readme-typing-svg.demolab.com?font=Orbitron&weight=700&size=32&duration=3000&pause=1000&color=FF69B4&background=0A0A0A00&center=true&vCenter=true&multiline=true&repeat=true&width=600&height=80&lines=%F0%9F%94%AE+CEASER%3A+PRIVACY+BY+DEFAULT+%F0%9F%94%AE;%E2%9A%A1+ZERO-KNOWLEDGE+PROOFS+%E2%9A%A1;%F0%9F%9B%A1%EF%B8%8F+CIRCLE+STARKS+%2B+M31+FIELD+%F0%9F%9B%A1%EF%B8%8F)
+<!-- Animated Cyberpunk Banner -->
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,30,24&height=200&section=header&text=CEASER&fontSize=70&fontColor=ff69b4&animation=twinkling&fontAlignY=35&desc=Privacy%20by%20Default&descSize=25&descAlignY=55" width="100%"/>
 
-<div style="background: linear-gradient(90deg, #ff0080, #ff69b4, #ff0080); height: 3px; width: 80%; margin: 10px auto; border-radius: 2px; box-shadow: 0 0 10px #ff0080;"></div>
+<!-- Dynamic typing animation -->
+![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&duration=2000&pause=800&color=FF1493&background=00000000&center=true&vCenter=true&multiline=true&repeat=true&width=800&height=120&lines=Zero-Knowledge+Proofs+with+Circle+STARKs;M31+Field+Arithmetic+%2B+Real+STWO+Prover;Anonymous+Sets+%2B+Merkle+Tree+Privacy;Cryptographic+Privacy+for+Starknet+Ecosystem)
+
+<!-- Particle effect divider -->
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
+
+<!-- GitHub stats with animations -->
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=Zyra-V21&bg_color=0d1117&color=ff69b4&line=ff1493&point=ff69b4&area=true&hide_border=true" width="100%"/>
 
 </div>
 
