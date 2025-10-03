@@ -16,17 +16,17 @@
 
 
 
-**ZK-CEASER**is a complete zero-knowledge proof generation system combining**Circle STARKs**with**M31 field arithmetic**using StarkWare's official**STWO prover**. This application demonstrates advanced cryptographic privacy techniques through an intuitive web interface.
+**ZK-CEASER** is a complete zero-knowledge proof generation system combining Circle STARKs with M31 field arithmetic using StarkWare's official STWO prover. This application demonstrates advanced cryptographic privacy techniques through an intuitive web interface.
 
 ## Features
 
--**Zero-Knowledge Proofs**: Using STWO (StarkWare Two) official prover
--**Circle STARKs**: Next-generation STARK technology  
--**M31 Field Arithmetic**: Mersenne-31 (2^31 - 1) field operations
--**Anonymous Sets**: 1024-user Merkle trees for privacy
--**Modern Web Interface**: Next.js 15 + Rust WASM integration
--**Production Ready**: 128-bit cryptographic security
--**Cryptography**: No mocks - actual STWO implementation
+- **Zero-Knowledge Proofs**: Using STWO (StarkWare Two) official prover
+- **Circle STARKs**: Next-generation STARK technology  
+- **M31 Field Arithmetic**: Mersenne-31 (2^31 - 1) field operations
+- **Anonymous Sets**: 1024-user Merkle trees for privacy
+- **Modern Web Interface**: Next.js 15 + Rust WASM integration
+- **Production Ready**: 128-bit cryptographic security
+- **Cryptography**: No mocks - actual STWO implementation
 
 ## Architecture
 
@@ -36,7 +36,7 @@
 ├─────────────────────────────────────────────────────────┤
 │   Frontend (Next.js)      │     Backend (Rust WASM)     │
 │                           │                             │
-│ • React Components        │ • STWO Integration     │
+│ • React Components        │ • STWO Integration          │
 │ • WASM Module Loading     │ • M31 Field Arithmetic      │
 │ • Proof Verification      │ • Circle STARKs Generation  │
 │ • Modern UI/UX            │ • Merkle Tree Proofs        │
@@ -48,9 +48,9 @@
 
 ### Prerequisites
 
--**Rust nightly-2025-07-14**(required for STWO)
--**Node.js 18+**
--**Git**for cloning dependencies
+- **Rust nightly-2025-07-14** (required for STWO)
+- **Node.js 18+** 
+- **Git** for cloning dependencies
 
 ### Step 1: Clone Repository
 
@@ -134,23 +134,23 @@ You should see the ZK-CEASER interface where you can:
 
 ## Technical Deep Dive
 
-###**Zero-Knowledge Proof Components
+### Zero-Knowledge Proof Components
 
 ZK-CEASER generates comprehensive privacy proofs containing:
 
-1.**Pedersen Commitments**: Hide transaction amounts using elliptic curve cryptography
-2.**Range Proofs**: Prove amount validity (0.001-1000+ units) without revealing exact values
-3.**Nullifiers**: Unique identifiers preventing double-spending attacks
-4.**Merkle Proofs**: Anonymous set membership within 1024-user trees
-5.**Encrypted Metadata**: Secure receiver information encoding
+1. **Pedersen Commitments**: Hide transaction amounts using elliptic curve cryptography
+2. **Range Proofs**: Prove amount validity (0.001-1000+ units) without revealing exact values
+3. **Nullifiers**: Unique identifiers preventing double-spending attacks
+4. **Merkle Proofs**: Anonymous set membership within 1024-user trees
+5. **Encrypted Metadata**: Secure receiver information encoding
 
-###**STWO Integration (Cryptography)
+### STWO Integration (Cryptography)
 
--**Field**: M31 (Mersenne-31: 2^31 - 1) - optimized for modern CPUs
--**Extension**: QM31 (Quartic extension) - enhanced security properties  
--**STARKs**: Circle STARKs with FRI - next-generation proof system
--**Hash**: Blake2s (256-bit) - high-performance cryptographic hashing
--**Security**: 128-bit cryptographic security - production-grade protection
+- **Field**: M31 (Mersenne-31: 2^31 - 1) - optimized for modern CPUs
+- **Extension**: QM31 (Quartic extension) - enhanced security properties  
+- **STARKs**: Circle STARKs with FRI - next-generation proof system
+- **Hash**: Blake2s (256-bit) - high-performance cryptographic hashing
+- **Security**: 128-bit cryptographic security - production-grade protection
 
 ### Performance Metrics
 
@@ -202,7 +202,7 @@ cargo test --features real-stwo
 
 ## Testing & Validation
 
-###**Proof Generation Testing
+### Proof Generation Testing
 
 ```bash
 # Test ZK proof generation
@@ -215,7 +215,7 @@ npm run dev
 # Navigate to http://localhost:3000 and generate a proof
 ```
 
-###**Verification Testing
+### Verification Testing
 
 Generated proofs should show:
 -  `verification_result: true` 
@@ -223,7 +223,7 @@ Generated proofs should show:
 -  Valid anonymous set size (1024)
 -  Proper STWO proof structure
 
-###**Example Generated Proof Structure
+### Example Generated Proof Structure
 
 ```json
 {
@@ -246,7 +246,7 @@ Generated proofs should show:
 
 ## Production Deployment
 
-###**Build for Production
+### Build for Production
 
 ```bash
 # 1. Build optimized WASM
@@ -260,7 +260,7 @@ npm run build
 npm start
 ```
 
-###**Deployment Checklist
+### Deployment Checklist
 
 - [ ]  Rust nightly-2025-07-14 installed
 - [ ]  STWO dependencies cloned to `external/`
@@ -271,7 +271,7 @@ npm start
 
 ## **Security & Cryptography
 
-###**Cryptographic Guarantees
+### Cryptographic Guarantees
 
 - **STWO Implementation**: No mocks - actual Circle STARKs
 - **M31 Field Arithmetic**: Production-grade mathematical operations  
@@ -279,18 +279,18 @@ npm start
 - **Merkle Tree Proofs**: Anonymous set membership verification
 - **Nullifier System**: Prevents double-spending attacks
 
-###**Security Audit Status
+### Security Audit Status
 
--**Internal Review**:  Completed
--**Code Quality**:  Production-ready
--**Cryptographic Implementation**:  STWO integration verified
--**External Audit**:  Available for security researchers
+-** Internal Review**:  Completed
+-** Code Quality**:  Production-ready
+-** Cryptographic Implementation**:  STWO integration verified
+-** External Audit**:  Available for security researchers
 
 ## **Contributing
 
 We welcome contributions to improve ZK-CEASER! 
 
-###**Development Setup
+### Development Setup
 
 1. Fork the repository
 2. Clone your fork: `git clone https://github.com/YOUR_USERNAME/zk-ceaser.git`
@@ -301,7 +301,7 @@ We welcome contributions to improve ZK-CEASER!
 7. Push: `git push origin feature/amazing-feature`
 8. Open a Pull Request
 
-###**Areas for Contribution
+### Areas for Contribution
 
 - **Cryptography**: Enhance STWO integration
 - **Frontend**: Improve UI/UX components  
@@ -311,7 +311,7 @@ We welcome contributions to improve ZK-CEASER!
 
 ## License & Important Disclaimer
 
-This project is licensed under the**ZK-CEASER NON-COMMERCIAL LICENSE**- see the [LICENSE](LICENSE) file for details.
+This project is licensed under the**ZK-CEASER NON-COMMERCIAL LICENSE** - see the [LICENSE](LICENSE) file for details.
 
 ### Important Disclaimer
 This software is developed for**research and development purposes only**. It has**not been audited for production use**. Commercial usage is restricted to ensure responsible deployment of cryptographic systems.
@@ -324,17 +324,17 @@ This software is developed for**research and development purposes only**. It has
 
 ## Acknowledgments
 
--**[StarkWare](https://starkware.co/)**for STWO prover and Circle STARKs technology
--**[Arkworks](https://arkworks.rs/)**for foundational cryptographic primitives
--**[Rust Community](https://www.rust-lang.org/)**for the powerful systems programming language
--**[Next.js Team](https://nextjs.org/)**for the excellent React framework
+-** [StarkWare](https://starkware.co/)**for STWO prover and Circle STARKs technology
+-** [Arkworks](https://arkworks.rs/)**for foundational cryptographic primitives
+-** [Rust Community](https://www.rust-lang.org/)**for the powerful systems programming language
+-** [Next.js Team](https://nextjs.org/)**for the excellent React framework
 
 ## Support & Community
 
--**Issues**: [GitHub Issues](https://github.com/Zyra-V21/zk-ceaser/issues)
--**Discussions**: [GitHub Discussions](https://github.com/Zyra-V21/zk-ceaser/discussions)  
--**Backend Docs**: [Rust Backend README](zkp-rust-backend/README.md)
--**Twitter**: [@ZyraV21](https://twitter.com/ZyraV21)
+-** Issues**: [GitHub Issues](https://github.com/Zyra-V21/zk-ceaser/issues)
+-** Discussions**: [GitHub Discussions](https://github.com/Zyra-V21/zk-ceaser/discussions)  
+-** Backend Docs**: [Rust Backend README](zkp-rust-backend/README.md)
+-** Twitter**: [@ZyraV21](https://twitter.com/ZyraV21)
 
 ---
 
