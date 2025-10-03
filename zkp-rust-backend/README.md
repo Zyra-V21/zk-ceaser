@@ -1,41 +1,41 @@
-# 🦀 ZK-CEASER Rust Backend
+#  ZK-CEASER Rust Backend
 
 This is the **cryptographic core** of ZK-CEASER, implementing real zero-knowledge proof generation using StarkWare's **STWO prover** with **Circle STARKs** and **M31 field arithmetic**.
 
-## 🏗️ **Architecture Overview**
+##  **Architecture Overview**
 
 ```
 ┌─────────────────────────────────────────────────────┐
 │                ZKP Rust Backend                     │
 ├─────────────────────────────────────────────────────┤
-│  🔬 STWO Prover    │  🌳 Merkle Trees               │
+│   STWO Prover    │   Merkle Trees               │
 │  • Circle STARKs   │  • Anonymous Sets              │
 │  • M31 Fields      │  • 1024-user capacity          │
 │  • Real Proofs     │  • Hash-based proofs           │
 ├─────────────────────────────────────────────────────┤
-│  🔐 Cryptography   │  🌐 WASM Interface             │
+│   Cryptography   │   WASM Interface             │
 │  • Pedersen        │  • Web Assembly output         │
 │  • Range Proofs    │  • JavaScript bindings        │
 │  • Nullifiers     │  • Browser compatibility       │
 └─────────────────────────────────────────────────────┘
 ```
 
-## ⚡ **Key Features**
+##  **Key Features**
 
-- **🔬 Real STWO Integration**: Actual Circle STARKs, not mocks
-- **🔢 M31 Field Arithmetic**: Mersenne-31 (2^31 - 1) optimized operations
-- **🌳 Merkle Tree Proofs**: Anonymous set membership for 1024 users
-- **🔐 Pedersen Commitments**: Amount hiding with elliptic curve cryptography
-- **🎯 Range Proofs**: Prove validity without revealing exact values
-- **🌐 WASM Output**: Runs in browsers via WebAssembly
+- ** Real STWO Integration**: Actual Circle STARKs, not mocks
+- ** M31 Field Arithmetic**: Mersenne-31 (2^31 - 1) optimized operations
+- ** Merkle Tree Proofs**: Anonymous set membership for 1024 users
+- ** Pedersen Commitments**: Amount hiding with elliptic curve cryptography
+- ** Range Proofs**: Prove validity without revealing exact values
+- ** WASM Output**: Runs in browsers via WebAssembly
 
-## 🔧 **Build Configuration**
+##  **Build Configuration**
 
 ### **Feature Flags**
 
 | Feature | Description | Use Case |
 |---------|-------------|----------|
-| `real-stwo` | 🔬 Real STWO prover | Production, actual proofs |
+| `real-stwo` |  Real STWO prover | Production, actual proofs |
 | `mock-stwo` | 🎭 Mock implementation | Development, fast testing |
 
 ### **Build Commands**
@@ -54,7 +54,7 @@ wasm-pack build --target web --features real-stwo
 wasm-pack build --target web --features mock-stwo
 ```
 
-## 📁 **Code Structure**
+##  **Code Structure**
 
 ```
 zkp-rust-backend/
@@ -70,27 +70,27 @@ zkp-rust-backend/
 
 ### **Core Modules**
 
-#### **🌐 `lib.rs` - WASM Interface**
+#### ** `lib.rs` - WASM Interface**
 - Exports `generate_ceaser_zk_proof()` to JavaScript
 - Handles input validation and error management
 - Coordinates all cryptographic components
 
-#### **🌳 `merkle_tree.rs` - Anonymous Sets**
+#### ** `merkle_tree.rs` - Anonymous Sets**
 - Implements 1024-user Merkle trees (depth 10)
 - Generates membership proofs
 - Uses Blake2s for efficient hashing
 
-#### **🔐 `commitment.rs` - Privacy Layer**
+#### ** `commitment.rs` - Privacy Layer**
 - Pedersen commitments for amount hiding
 - Range proof generation (0.001-1000+ units)
 - Nullifier creation for double-spend prevention
 
-#### **⚡ `stwo_integration.rs` - STARK Proofs**
+#### ** `stwo_integration.rs` - STARK Proofs**
 - Real Circle STARK implementation
 - M31 field arithmetic operations
 - FRI-based proof generation
 
-## 🔬 **STWO Integration Details**
+##  **STWO Integration Details**
 
 ### **Mathematical Foundation**
 - **Base Field**: M31 = 2^31 - 1 (Mersenne prime)
@@ -104,7 +104,7 @@ zkp-rust-backend/
 - **Zero-Knowledge**: Perfect zero-knowledge property
 - **Succinctness**: Logarithmic proof size and verification time
 
-## 🌐 **WASM Generation**
+##  **WASM Generation**
 
 ### **Output Files**
 ```bash
@@ -133,7 +133,7 @@ const proof = generate_ceaser_zk_proof(
 );
 ```
 
-## 🐛 **Debugging & Troubleshooting**
+##  **Debugging & Troubleshooting**
 
 ### **Common Issues**
 
@@ -141,8 +141,8 @@ const proof = generate_ceaser_zk_proof(
 |-------|----------|
 | **🚫 Compilation fails** | Ensure `rustup override set nightly-2025-07-14` |
 | **📦 WASM not generated** | Check `wasm-pack` is installed and up to date |
-| **🔬 STWO errors** | Verify external STWO dependency is properly cloned |
-| **🌐 JavaScript binding fails** | Ensure WASM files are copied to `public/pkg/` |
+| ** STWO errors** | Verify external STWO dependency is properly cloned |
+| ** JavaScript binding fails** | Ensure WASM files are copied to `public/pkg/` |
 
 ### **Debug Commands**
 
@@ -174,7 +174,7 @@ ls -la pkg/zkp_ceaser_bg.wasm
 cargo run --features real-stwo --example memory_profile
 ```
 
-## 🔍 **Testing**
+##  **Testing**
 
 ### **Unit Tests**
 ```bash
@@ -197,25 +197,25 @@ cd ../
 npm test
 ```
 
-## 📊 **Performance Metrics**
+##  **Performance Metrics**
 
 | Operation | Time | Notes |
 |-----------|------|--------|
-| **🔬 Proof Generation** | 2-5s | Real STWO computation |
-| **🌳 Merkle Proof** | <1ms | Tree depth 10 |
-| **🔐 Commitment** | <1ms | Elliptic curve ops |
+| ** Proof Generation** | 2-5s | Real STWO computation |
+| ** Merkle Proof** | <1ms | Tree depth 10 |
+| ** Commitment** | <1ms | Elliptic curve ops |
 | **📦 WASM Loading** | ~100ms | First load only |
 | **💾 Memory Usage** | ~50MB | Peak during proof gen |
 
-## 🔄 **Development Workflow**
+##  **Development Workflow**
 
-1. **🔧 Setup Environment**
+1. ** Setup Environment**
    ```bash
    rustup install nightly-2025-07-14
    rustup override set nightly-2025-07-14
    ```
 
-2. **🏗️ Build Development Version**
+2. ** Build Development Version**
    ```bash
    cargo build --features mock-stwo
    ```
@@ -225,7 +225,7 @@ npm test
    cargo test --features mock-stwo
    ```
 
-4. **🌐 Generate WASM**
+4. ** Generate WASM**
    ```bash
    wasm-pack build --target web --features mock-stwo
    ```
@@ -250,13 +250,13 @@ npm test
 - **Rust Nightly**: Specific version `nightly-2025-07-14`
 - **wasm-pack**: Latest version for WASM generation
 
-## 🤝 **Contributing to Backend**
+##  **Contributing to Backend**
 
-1. **🔍 Code Review**: Focus on cryptographic correctness
+1. ** Code Review**: Focus on cryptographic correctness
 2. **🧪 Testing**: Add tests for new cryptographic functions
 3. **📚 Documentation**: Document mathematical foundations
 4. **🔒 Security**: Follow secure coding practices
-5. **⚡ Performance**: Optimize hot paths in proof generation
+5. ** Performance**: Optimize hot paths in proof generation
 
 ---
 

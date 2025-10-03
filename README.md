@@ -1,4 +1,4 @@
-# 🛡️ ZK-CEASER: Privacy-Preserving Zero-Knowledge Proof System
+# ZK-CEASER: Privacy-Preserving Zero-Knowledge Proof System
 
 <div align="center">
 
@@ -12,7 +12,14 @@
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
 
 <!-- GitHub stats with animations -->
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=Zyra-V21&bg_color=0d1117&color=ff69b4&line=ff1493&point=ff69b4&area=true&hide_border=true" width="100%"/>
+<img src="https://repobeats.axiom.co/api/embed/8e5b5d0c5f7b5b8c6f7d8e9f0a1b2c3d4e5f6a7b.svg" alt="Repobeats analytics image">
+
+<!-- Repository contribution stats -->
+<img src="https://github-contributor-stats.vercel.app/api?username=Zyra-V21&repo=zk-ceaser&limit=10&theme=cyberpunk&combine_all_yearly_contributions=true" width="100%"/>
+
+<!-- Repository insights -->
+<img src="https://github-readme-stats.vercel.app/api?username=Zyra-V21&repo=zk-ceaser&show_icons=true&theme=cyberpunk&hide_border=true&bg_color=0d1117&title_color=ff69b4&icon_color=ff1493&text_color=ffffff" width="49%"/>
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Zyra-V21&layout=compact&theme=cyberpunk&hide_border=true&bg_color=0d1117&title_color=ff69b4&text_color=ffffff" width="49%"/>
 
 </div>
 
@@ -22,19 +29,19 @@
 [![Rust](https://img.shields.io/badge/Rust-nightly--2025--07--14-orange?style=for-the-badge&logo=rust)](https://www.rust-lang.org/)
 [![Next.js](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
 
-**ZK-CEASER** is a complete zero-knowledge proof generation system combining **real Circle STARKs** with **M31 field arithmetic** using StarkWare's official **STWO prover**. This application demonstrates advanced cryptographic privacy techniques through an intuitive web interface.
+**ZK-CEASER**is a complete zero-knowledge proof generation system combining**real Circle STARKs**with**M31 field arithmetic**using StarkWare's official**STWO prover**. This application demonstrates advanced cryptographic privacy techniques through an intuitive web interface.
 
-## 🌟 **Features**
+## Features
 
-- 🔐 **Real Zero-Knowledge Proofs**: Using STWO (StarkWare Two) official prover
-- ⚡ **Circle STARKs**: Next-generation STARK technology  
-- 🔢 **M31 Field Arithmetic**: Mersenne-31 (2^31 - 1) field operations
-- 🌳 **Anonymous Sets**: 1024-user Merkle trees for privacy
-- 🌐 **Modern Web Interface**: Next.js 15 + Rust WASM integration
-- 📱 **Production Ready**: 128-bit cryptographic security
-- 🎯 **Real Cryptography**: No mocks - actual STWO implementation
+-**Real Zero-Knowledge Proofs**: Using STWO (StarkWare Two) official prover
+-**Circle STARKs**: Next-generation STARK technology  
+-**M31 Field Arithmetic**: Mersenne-31 (2^31 - 1) field operations
+-**Anonymous Sets**: 1024-user Merkle trees for privacy
+-**Modern Web Interface**: Next.js 15 + Rust WASM integration
+-**Production Ready**: 128-bit cryptographic security
+-**Real Cryptography**: No mocks - actual STWO implementation
 
-## 🏗️ **Architecture**
+## Architecture
 
 ```
 ┌─────────────────────────────────────────────────────────┐
@@ -50,22 +57,22 @@
 └─────────────────────────────────────────────────────────┘
 ```
 
-## 🚀 **Quick Start & Reproduction Guide**
+## Quick Start & Reproduction Guide
 
-### **📋 Prerequisites**
+### Prerequisites
 
-- **Rust nightly-2025-07-14** (required for STWO)
-- **Node.js 18+** 
-- **Git** for cloning dependencies
+-**Rust nightly-2025-07-14**(required for STWO)
+-**Node.js 18+**
+-**Git**for cloning dependencies
 
-### **🔧 Step 1: Clone Repository**
+### Step 1: Clone Repository
 
 ```bash
 git clone https://github.com/Zyra-V21/zk-ceaser.git
 cd zk-ceaser/zk-ceaser-app
 ```
 
-### **🏗️ Step 2: Setup STWO Dependencies**
+### Step 2: Setup STWO Dependencies
 
 ```bash
 # Create external directory and clone STWO repositories
@@ -85,7 +92,7 @@ git checkout main
 cd ../..
 ```
 
-### **⚙️ Step 3: Setup Rust Toolchain**
+### Step 3: Setup Rust Toolchain
 
 ```bash
 # Install specific nightly version required by STWO
@@ -97,7 +104,7 @@ rustc --version
 # Should show: rustc 1.90.0-nightly
 ```
 
-### **🦀 Step 4: Build Rust WASM Backend**
+### Step 4: Build Rust WASM Backend
 
 ```bash
 cd zkp-rust-backend
@@ -115,7 +122,7 @@ cp pkg/zkp_ceaser.js ../public/pkg/
 cd ..
 ```
 
-### **🌐 Step 5: Setup Frontend**
+### Step 5: Setup Frontend
 
 ```bash
 # Install Node.js dependencies
@@ -125,7 +132,7 @@ npm install
 npm run dev
 ```
 
-### **✅ Step 6: Access Application**
+### Step 6: Access Application
 
 Open your browser and navigate to:
 ```
@@ -138,57 +145,57 @@ You should see the ZK-CEASER interface where you can:
 - Download proof files
 - Explore cryptographic components
 
-## 🔬 **Technical Deep Dive**
+## Technical Deep Dive
 
-### **Zero-Knowledge Proof Components**
+###**Zero-Knowledge Proof Components
 
 ZK-CEASER generates comprehensive privacy proofs containing:
 
-1. **🔒 Pedersen Commitments**: Hide transaction amounts using elliptic curve cryptography
-2. **📊 Range Proofs**: Prove amount validity (0.001-1000+ units) without revealing exact values
-3. **🔑 Nullifiers**: Unique identifiers preventing double-spending attacks
-4. **🌳 Merkle Proofs**: Anonymous set membership within 1024-user trees
-5. **📦 Encrypted Metadata**: Secure receiver information encoding
+1.**Pedersen Commitments**: Hide transaction amounts using elliptic curve cryptography
+2.**Range Proofs**: Prove amount validity (0.001-1000+ units) without revealing exact values
+3.**Nullifiers**: Unique identifiers preventing double-spending attacks
+4.**Merkle Proofs**: Anonymous set membership within 1024-user trees
+5.**Encrypted Metadata**: Secure receiver information encoding
 
-### **STWO Integration (Real Cryptography)**
+###**STWO Integration (Real Cryptography)
 
-- **🔢 Field**: M31 (Mersenne-31: 2^31 - 1) - optimized for modern CPUs
-- **🔗 Extension**: QM31 (Quartic extension) - enhanced security properties  
-- **⚡ STARKs**: Circle STARKs with FRI - next-generation proof system
-- **🔐 Hash**: Blake2s (256-bit) - high-performance cryptographic hashing
-- **🛡️ Security**: 128-bit cryptographic security - production-grade protection
+-**Field**: M31 (Mersenne-31: 2^31 - 1) - optimized for modern CPUs
+-**Extension**: QM31 (Quartic extension) - enhanced security properties  
+-**STARKs**: Circle STARKs with FRI - next-generation proof system
+-**Hash**: Blake2s (256-bit) - high-performance cryptographic hashing
+-**Security**: 128-bit cryptographic security - production-grade protection
 
-### **📊 Performance Metrics**
+### Performance Metrics
 
 | Component | Performance | Notes |
 |-----------|-------------|-------|
-| **⚡ Proof Generation** | 2-5 seconds | Real STWO computation |
-| **📦 Proof Size** | 8-16 KB | Optimized Circle STARKs |
-| **✅ Verification** | 100-500ms | M31 field operations |
-| **👥 Anonymous Set** | 1024 users | Merkle tree depth 10 |
-| **💾 Memory Usage** | ~50MB | WASM + STWO runtime |
-## 📊 **System Status**
+|**Proof Generation**| 2-5 seconds | Real STWO computation |
+|**Proof Size**| 8-16 KB | Optimized Circle STARKs |
+|**Verification**| 100-500ms | M31 field operations |
+|**Anonymous Set**| 1024 users | Merkle tree depth 10 |
+|**Memory Usage**| ~50MB | WASM + STWO runtime |
+## System Status
 
 | Component | Status | Technology |
 |-----------|---------|------------|
-| **🔬 ZK Proofs** | ✅ Production | STWO + M31 + Circle STARKs |
-| **🌐 Frontend** | ✅ Production | Next.js 15 + TypeScript |
-| **🦀 WASM Backend** | ✅ Production | Rust + Real STWO |
-| **🔐 Cryptography** | ✅ 128-bit | Real Implementation |
-| **👥 Anonymous Sets** | ✅ 1024 Users | Merkle Trees |
+|**ZK Proofs**|  Production | STWO + M31 + Circle STARKs |
+|**Frontend**|  Production | Next.js 15 + TypeScript |
+|**WASM Backend**|  Production | Rust + Real STWO |
+|**Cryptography**|  128-bit | Real Implementation |
+|**Anonymous Sets**|  1024 Users | Merkle Trees |
 
-## 🛠️ **Development & Debugging**
+## Development & Debugging
 
-### **⚠️ Common Issues & Solutions**
+### Common Issues & Solutions
 
 | Issue | Solution |
 |-------|----------|
-| **🚫 WASM not loading** | Check `next.config.js` and ensure WASM files are in `public/pkg/` |
-| **❌ Rust compilation fails** | Verify `rustup override set nightly-2025-07-14` |
-| **📁 External repos missing** | Clone STWO dependencies to `external/` directory |
-| **🔍 Proof verification fails** | Ensure real STWO feature is enabled during build |
+|**WASM not loading**| Check `next.config.js` and ensure WASM files are in `public/pkg/` |
+|**Rust compilation fails**| Verify `rustup override set nightly-2025-07-14` |
+|**External repos missing**| Clone STWO dependencies to `external/` directory |
+|**Proof verification fails**| Ensure real STWO feature is enabled during build |
 
-### **🔧 Build Commands Reference**
+### Build Commands Reference
 
 ```bash
 # Development build (faster)
@@ -206,9 +213,9 @@ cargo check --features real-stwo
 cargo test --features real-stwo
 ```
 
-## 🧪 **Testing & Validation**
+## Testing & Validation
 
-### **Proof Generation Testing**
+###**Proof Generation Testing
 
 ```bash
 # Test ZK proof generation
@@ -221,15 +228,15 @@ npm run dev
 # Navigate to http://localhost:3000 and generate a proof
 ```
 
-### **Verification Testing**
+###**Verification Testing
 
 Generated proofs should show:
-- ✅ `verification_result: true` 
-- ✅ Real Merkle proofs (not empty)
-- ✅ Valid anonymous set size (1024)
-- ✅ Proper STWO proof structure
+-  `verification_result: true` 
+-  Real Merkle proofs (not empty)
+-  Valid anonymous set size (1024)
+-  Proper STWO proof structure
 
-### **Example Generated Proof Structure**
+###**Example Generated Proof Structure
 
 ```json
 {
@@ -250,9 +257,9 @@ Generated proofs should show:
 }
 ```
 
-## 🚀 **Production Deployment**
+## Production Deployment
 
-### **Build for Production**
+###**Build for Production
 
 ```bash
 # 1. Build optimized WASM
@@ -266,37 +273,37 @@ npm run build
 npm start
 ```
 
-### **Deployment Checklist**
+###**Deployment Checklist
 
-- [ ] ✅ Rust nightly-2025-07-14 installed
-- [ ] ✅ STWO dependencies cloned to `external/`
-- [ ] ✅ Real STWO features enabled  
-- [ ] ✅ WASM files generated and copied
-- [ ] ✅ Frontend builds without errors
-- [ ] ✅ Proof generation works with `verification_result: true`
+- [ ]  Rust nightly-2025-07-14 installed
+- [ ]  STWO dependencies cloned to `external/`
+- [ ]  Real STWO features enabled  
+- [ ]  WASM files generated and copied
+- [ ]  Frontend builds without errors
+- [ ]  Proof generation works with `verification_result: true`
 
-## 🔐 **Security & Cryptography**
+## **Security & Cryptography
 
-### **Cryptographic Guarantees**
+###**Cryptographic Guarantees
 
-- ✅ **Real STWO Implementation**: No mocks - actual Circle STARKs
-- ✅ **M31 Field Arithmetic**: Production-grade mathematical operations  
-- ✅ **128-bit Security**: Industry-standard cryptographic strength
-- ✅ **Merkle Tree Proofs**: Anonymous set membership verification
-- ✅ **Nullifier System**: Prevents double-spending attacks
+- **Real STWO Implementation**: No mocks - actual Circle STARKs
+- **M31 Field Arithmetic**: Production-grade mathematical operations  
+- **128-bit Security**: Industry-standard cryptographic strength
+- **Merkle Tree Proofs**: Anonymous set membership verification
+- **Nullifier System**: Prevents double-spending attacks
 
-### **Security Audit Status**
+###**Security Audit Status
 
-- **Internal Review**: ✅ Completed
-- **Code Quality**: ✅ Production-ready
-- **Cryptographic Implementation**: ✅ Real STWO integration verified
-- **External Audit**: 🔄 Available for security researchers
+-**Internal Review**:  Completed
+-**Code Quality**:  Production-ready
+-**Cryptographic Implementation**:  Real STWO integration verified
+-**External Audit**:  Available for security researchers
 
-## 🤝 **Contributing**
+## **Contributing
 
 We welcome contributions to improve ZK-CEASER! 
 
-### **Development Setup**
+###**Development Setup
 
 1. Fork the repository
 2. Clone your fork: `git clone https://github.com/YOUR_USERNAME/zk-ceaser.git`
@@ -307,51 +314,51 @@ We welcome contributions to improve ZK-CEASER!
 7. Push: `git push origin feature/amazing-feature`
 8. Open a Pull Request
 
-### **Areas for Contribution**
+###**Areas for Contribution
 
-- 🔬 **Cryptography**: Enhance STWO integration
-- 🎨 **Frontend**: Improve UI/UX components  
-- ⚡ **Performance**: Optimize proof generation
-- 📚 **Documentation**: Expand technical guides
-- 🧪 **Testing**: Add comprehensive test coverage
+- **Cryptography**: Enhance STWO integration
+- **Frontend**: Improve UI/UX components  
+- **Performance**: Optimize proof generation
+- **Documentation**: Expand technical guides
+- **Testing**: Add comprehensive test coverage
 
-## 📜 **License & Important Disclaimer**
+## License & Important Disclaimer
 
-This project is licensed under the **ZK-CEASER NON-COMMERCIAL LICENSE** - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the**ZK-CEASER NON-COMMERCIAL LICENSE**- see the [LICENSE](LICENSE) file for details.
 
-### **⚠️ Important Disclaimer**
-This software is developed for **research and development purposes only**. It has **not been audited for production use**. Commercial usage is restricted to ensure responsible deployment of cryptographic systems.
+### Important Disclaimer
+This software is developed for**research and development purposes only**. It has**not been audited for production use**. Commercial usage is restricted to ensure responsible deployment of cryptographic systems.
 
-### **📋 License Summary**
-- ✅ **Non-commercial use**: Personal, educational, research, and open-source contributions
-- ❌ **Commercial use**: Reserved exclusively to Ceaser (@ZyraV21)
-- 🤝 **Contributions**: Welcome under the same license terms
-- 📞 **Commercial licensing**: Contact [@ZyraV21](https://twitter.com/ZyraV21) for inquiries
+### License Summary
+- **Non-commercial use**: Personal, educational, research, and open-source contributions
+- **Commercial use**: Reserved exclusively to Ceaser (@ZyraV21)
+- **Contributions**: Welcome under the same license terms
+- **Commercial licensing**: Contact [@ZyraV21](https://twitter.com/ZyraV21) for inquiries
 
-## 🙏 **Acknowledgments**
+## Acknowledgments
 
-- **[StarkWare](https://starkware.co/)** for STWO prover and Circle STARKs technology
-- **[Arkworks](https://arkworks.rs/)** for foundational cryptographic primitives
-- **[Rust Community](https://www.rust-lang.org/)** for the powerful systems programming language
-- **[Next.js Team](https://nextjs.org/)** for the excellent React framework
+-**[StarkWare](https://starkware.co/)**for STWO prover and Circle STARKs technology
+-**[Arkworks](https://arkworks.rs/)**for foundational cryptographic primitives
+-**[Rust Community](https://www.rust-lang.org/)**for the powerful systems programming language
+-**[Next.js Team](https://nextjs.org/)**for the excellent React framework
 
-## 📞 **Support & Community**
+## Support & Community
 
-- **🐛 Issues**: [GitHub Issues](https://github.com/Zyra-V21/zk-ceaser/issues)
-- **💬 Discussions**: [GitHub Discussions](https://github.com/Zyra-V21/zk-ceaser/discussions)  
-- **🦀 Backend Docs**: [Rust Backend README](zkp-rust-backend/README.md)
-- **🐦 Twitter**: [@ZyraV21](https://twitter.com/ZyraV21)
+-**Issues**: [GitHub Issues](https://github.com/Zyra-V21/zk-ceaser/issues)
+-**Discussions**: [GitHub Discussions](https://github.com/Zyra-V21/zk-ceaser/discussions)  
+-**Backend Docs**: [Rust Backend README](zkp-rust-backend/README.md)
+-**Twitter**: [@ZyraV21](https://twitter.com/ZyraV21)
 
 ---
 
 <div align="center">
 
-**🛡️ Built with Real Cryptography for True Privacy 🛡️**
+**Built with Real Cryptography for True Privacy 🛡️
 
 [![GitHub stars](https://img.shields.io/github/stars/Zyra-V21/zk-ceaser?style=social)](https://github.com/Zyra-V21/zk-ceaser/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/Zyra-V21/zk-ceaser?style=social)](https://github.com/Zyra-V21/zk-ceaser/network/members)
 [![License](https://img.shields.io/badge/License-ZK--CEASER%20Non--Commercial-red?style=flat-square)](./LICENSE)
 
-**Made with ❤️ using STWO + Circle STARKs + M31 Field Arithmetic**
+**Made with  using STWO + Circle STARKs + M31 Field Arithmetic
 
 </div>
