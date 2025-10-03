@@ -323,8 +323,7 @@ This software is developed for **research and development purposes only**. It ha
 
 - **🐛 Issues**: [GitHub Issues](https://github.com/Zyra-V21/zk-ceaser/issues)
 - **💬 Discussions**: [GitHub Discussions](https://github.com/Zyra-V21/zk-ceaser/discussions)  
-- **📖 Documentation**: [Technical Docs](TECHNICAL.md)
-- **🚀 Deployment**: [Deployment Guide](DEPLOYMENT.md)
+- **🦀 Backend Docs**: [Rust Backend README](zkp-rust-backend/README.md)
 - **🐦 Twitter**: [@ZyraV21](https://twitter.com/ZyraV21)
 
 ---
