@@ -323,10 +323,10 @@ This software is developed for **research and development purposes only**. It ha
 
 ## Acknowledgments
 
--** [StarkWare](https://starkware.co/)**for STWO prover and Circle STARKs technology
--** [Arkworks](https://arkworks.rs/)**for foundational cryptographic primitives
--** [Rust Community](https://www.rust-lang.org/)**for the powerful systems programming language
--** [Next.js Team](https://nextjs.org/)**for the excellent React framework
+-**[StarkWare](https://starkware.co/)**for STWO prover and Circle STARKs technology
+-**[Arkworks](https://arkworks.rs/)**for foundational cryptographic primitives
+-**[Rust Community](https://www.rust-lang.org/)**for the powerful systems programming language
+-**[Next.js Team](https://nextjs.org/)**for the excellent React framework
 
 ## Support & Community
 
