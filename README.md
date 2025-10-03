@@ -1,5 +1,13 @@
 # 🛡️ ZK-CEASER: Privacy-Preserving Zero-Knowledge Proof System
 
+<div align="center">
+
+![Ceaser Neon Banner](https://readme-typing-svg.demolab.com?font=Orbitron&weight=700&size=32&duration=3000&pause=1000&color=FF69B4&background=0A0A0A00&center=true&vCenter=true&multiline=true&repeat=true&width=600&height=80&lines=%F0%9F%94%AE+CEASER%3A+PRIVACY+BY+DEFAULT+%F0%9F%94%AE;%E2%9A%A1+ZERO-KNOWLEDGE+PROOFS+%E2%9A%A1;%F0%9F%9B%A1%EF%B8%8F+CIRCLE+STARKS+%2B+M31+FIELD+%F0%9F%9B%A1%EF%B8%8F)
+
+<div style="background: linear-gradient(90deg, #ff0080, #ff69b4, #ff0080); height: 3px; width: 80%; margin: 10px auto; border-radius: 2px; box-shadow: 0 0 10px #ff0080;"></div>
+
+</div>
+
 [![License](https://img.shields.io/badge/License-ZK--CEASER%20Non--Commercial-red?style=for-the-badge)](./LICENSE)
 [![GitHub](https://img.shields.io/badge/GitHub-Zyra--V21-blue?style=for-the-badge&logo=github)](https://github.com/Zyra-V21/zk-ceaser)
 [![STWO](https://img.shields.io/badge/STWO-Real%20Implementation-green?style=for-the-badge&logo=ethereum)](https://github.com/starkware-libs/stwo)
